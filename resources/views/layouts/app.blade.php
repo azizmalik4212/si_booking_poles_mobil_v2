@@ -5,10 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
-    SI Pegawai - WSA Toserba
+    SM Detailing
   </title>
   <!-- Favicon -->
-  <link href="{{ asset('assets/img/logo_wsa2.png') }}" rel="icon" type="image/png">
+  <link href="{{ asset('assets/img/logo_SM2.png') }}" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->

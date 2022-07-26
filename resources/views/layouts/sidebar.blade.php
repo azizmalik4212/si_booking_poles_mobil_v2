@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-        <span><img src="{{ asset('assets/img/logo_wsa2.png') }}" class="navbar-brand-img" alt="..."><h2>SI Pegawai</h2></span>
+        <span><img src="{{ asset('assets/img/logo_SM1.png') }}" class="navbar-brand-img" alt="..."><h2>Detailing Dashboard</h2></span>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -100,17 +100,17 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('getDataBooking') }}">
-                    <i class="fa fa-list text-blue"></i> Data booking
+                    <i class="fa fa-list text-blue"></i> Data Booking
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('getDataPembayaran') }}">
-                    <i class="fa fa-coins text-blue"></i> Data pembayaran
+                    <i class="fa fa-coins text-blue"></i> Data Pembayaran
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('getDataListBooking') }}">
-                    <i class="fa fa-calendar text-blue"></i> List Bookings
+                    <i class="fa fa-calendar text-blue"></i> List Booking
                 </a>
             </li>
         </ul>
