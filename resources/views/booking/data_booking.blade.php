@@ -28,6 +28,35 @@
         </div>
         @endif
     @endif
+    <div class="col-xl-12 mb-6 mb-xl-0">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+
+                <form action="{{route('getDataBooking')}}" method="GET" enctype="multipart/form-data" id="filter_form">
+                  {{ csrf_field() }}
+                  <div class="row">
+                <div class="col-lg-12">
+                  <label for="exampleInputEmail1">Status</label>
+                  <select class="form-control" name="status" id="status" required>
+                      <option value="">-Semua-</option>
+                      <option value="WAITING">Menunggu Konfirmasi</option>
+                      <option value="ON_PROGRESS">Sedang Dikerjakan</option>
+                      <option value="COMPLETED">Selesai</option>
+                      <option value="PAID">Dibayar</option>
+                      <option value="REJECT">Ditolak</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-primary" onclick="submitFilter()" type="button"><i class="fa fa-search"></i> Filter</button>
+          </div>
+        </div>
+      </div>
     <div class="row mt-5">
         <div class="col-xl-12 mb-6 mb-xl-0">
             <div class="card shadow">
@@ -314,5 +343,8 @@
         $('#id_delete').val(id);
         $('#modalDelete').modal().show();
       }
+      function submitFilter(){
+        $("#filter_form").submit()
+    }
   </script>
 @endsection

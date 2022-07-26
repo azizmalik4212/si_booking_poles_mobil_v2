@@ -17,13 +17,17 @@ class bookingController extends Controller
         $this->global_exceptKey = ['_tokens', '_token', 'id_edit','id_konfirm'];
     }
 
-    public function index(){
+    public function index(Request $request){
         $data['tittle']='Data booking';
         $data['dataUser'] = User::where('role','user')->get();
         $data['dataLayanan'] = Layanan::get();
         $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
         $data['no_booking']='BOOK_'.$this->leadingZero($data['getLastId'] + 1);
-        $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
+        if ($request['status'] == null)
+            $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
+        else
+            $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.status',$request['status'])->get();
+
         return view('booking.data_booking', $data);
     }
 
