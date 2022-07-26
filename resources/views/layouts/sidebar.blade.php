@@ -116,7 +116,7 @@
         </ul>
 
         <!-- Divider -->
-        <hr class="my-3">
+        {{-- <hr class="my-3">
         <!-- Heading -->
         <h6 class="navbar-heading text-muted">Laporan</h6>
         <!-- Navigation -->
@@ -126,7 +126,7 @@
                     <i class="ni ni-single-copy-04"></i> Laporan data booking
                 </a>
             </li>
-        </ul>
+        </ul> --}}
 
         {{-- <ul class="navbar-nav">
             <li class="nav-item active active-pro">
