@@ -37,7 +37,7 @@
                   {{ csrf_field() }}
                   <div class="row">
                 <div class="col-lg-12">
-                  <label for="exampleInputEmail1">Status</label>
+                  <label for="exampleInputEmail1">Status Booking</label>
                   <select class="form-control" name="status" id="status" required>
                       <option value="">-Semua-</option>
                       <option value="WAITING">Menunggu Konfirmasi</option>
