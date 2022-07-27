@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href={{ asset('assets/img/logo_SM2.png') }} rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,17 +74,17 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>SM Detailing</h2>
+        <a href="#" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-car me-3"></i>Detailing</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Beranda</a>
-                <a href="about.html" class="nav-item nav-link">Tentang</a>
-                <a href="service.html" class="nav-item nav-link">Pelayanan</a>
+                <a href="#" class="nav-item nav-link active">Beranda</a>
+                <a href="#Aboutus" class="nav-item nav-link">Tentang</a>
+                <a href="#Service" class="nav-item nav-link">Layanan</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Transaksi</a>
                     <div class="dropdown-menu fade-up m-0">
@@ -95,7 +95,7 @@
                         <a href="404.html" class="dropdown-item">404 Page</a> --}}
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Login</a>
+                <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
             </div>
             <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Booking Sekarang<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
@@ -108,13 +108,14 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{{ asset('assets_frontend/img/carousel-bg-1.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('assets_frontend/img/slider1.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
                                 <div class="col-10 col-lg-7 text-center text-lg-start">
                                     <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Auto Detailing //</h6>
-                                    <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Perawatan Mobil </h1>
+                                    <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">SM Detailing </h1>
+                                    <a href="#Aboutus" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
                                 </div>
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
                                     <img class="img-fluid" src="{{ asset('assets_frontend/img/carousel-bg-1.png') }}" alt="">
@@ -124,15 +125,32 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('assets_frontend/img/carousel-bg-2.jpg') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('assets_frontend/img/slider1.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
-                                <div class="col-10 col-lg-7 text-center text-lg-start">
+                                {{-- <div class="col-10 col-lg-7 text-center text-lg-start">
                                     <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
                                     <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Wash Service Center</h1>
                                     <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                </div> --}}
+                                <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
+                                    <img class="img-fluid" src="{{ asset('assets_frontend/img/carousel-bg-2.png') }}" alt="">
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('assets_frontend/img/slider1.jpg') }}" alt="Image">
+                    <div class="carousel-caption d-flex align-items-center">
+                        <div class="container">
+                            <div class="row align-items-center justify-content-center justify-content-lg-start">
+                                {{-- <div class="col-10 col-lg-7 text-center text-lg-start">
+                                    <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Car Servicing //</h6>
+                                    <h1 class="display-3 text-white mb-4 pb-3 animated slideInDown">Qualified Car Wash Service Center</h1>
+                                    <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">Learn More<i class="fa fa-arrow-right ms-3"></i></a>
+                                </div> --}}
                                 <div class="col-lg-5 d-none d-lg-flex animated zoomIn">
                                     <img class="img-fluid" src="{{ asset('assets_frontend/img/carousel-bg-2.png') }}" alt="">
                                 </div>
@@ -183,7 +201,7 @@
                         <i class="fa fa-tools fa-3x text-primary flex-shrink-0"></i>
                         <div class="ps-4">
                             <h5 class="mb-3">Peralatan Berkualitas</h5>
-                            <p>Alat dan Bahan terbaik dan ramah lingkungan dalam bidang auto detailing</p>
+                            <p  id="Aboutus" > Alat dan Bahan terbaik dan ramah lingkungan dalam bidang auto detailing</p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +217,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 pt-4" style="min-height: 400px;">
                     <div class="position-relative h-100 wow fadeIn" data-wow-delay="0.1s">
-                        <img class="position-absolute img-fluid w-100 h-100" src="img/about.jpg" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/about.jpg') }}" style="object-fit: cover;" alt="">
                         <div class="position-absolute top-0 end-0 mt-n4 me-n4 py-4 px-5" style="background: rgba(0, 0, 0, .08);">
                             <h1 class="display-4 text-white mb-0">4 <span class="fs-4">Years</span></h1>
                             <h4 class="text-white">Experience</h4>
@@ -274,7 +292,7 @@
                 <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                     <i class="fa fa-car fa-2x text-white mb-3"></i>
                     <h2 class="text-white mb-2" data-toggle="counter-up">50</h2>
-                    <p class="text-white mb-0">Projek Selesai</p>
+                    <p  id="Service" class="text-white mb-0">Projek Selesai</p>
                 </div>
             </div>
         </div>
@@ -315,7 +333,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-1.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-1.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -333,7 +351,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-2.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-2.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -351,7 +369,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-3.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-3.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -369,7 +387,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-4.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-4.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -387,7 +405,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-4.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-5.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -405,7 +423,7 @@
                             <div class="row g-4">
                                 <div class="col-md-6" style="min-height: 350px;">
                                     <div class="position-relative h-100">
-                                        <img class="position-absolute img-fluid w-100 h-100" src="img/service-4.jpg"
+                                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-6.jpg') }}"
                                             style="object-fit: cover;" alt="">
                                     </div>
                                 </div>
@@ -639,7 +657,7 @@
                     <p>Daftarkan diri anda sebagai salah satu pelanggan SM Detailing</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">DAFTAR</button>
+                        <a href="{{ route('registerMenu') }}"> <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">DAFTAR</button>
                     </div>
                 </div>
             </div>

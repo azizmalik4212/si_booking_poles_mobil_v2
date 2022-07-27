@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        SI Pegawai - WSA Toserba
+        Aplikasi Booking SM Detailing
     </title>
     <!-- Favicon -->
-    <link href="{{ asset('assets/img/logo_wsa2.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('assets/img/logo_SM2.png') }}" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
@@ -68,7 +68,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                       </div>
-                      <input id="nama" type="text" class="form-control is-invalid" name="nama" value="" required autofocus placeholder="nama">
+                      <input id="nama" type="text" class="form-control is-invalid" name="nama" value="" required autofocus placeholder="Nama Lengkap">
                     </div>
                   </div>
                 <div class="form-group mb-3">
@@ -76,7 +76,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input id="username" type="text" class="form-control is-invalid" name="username" value="" autocomplete="username" autofocus placeholder="username">
+                    <input id="username" type="text" class="form-control is-invalid" name="username" value="" autocomplete="username" autofocus placeholder="Username">
                   </div>
                 </div>
 
@@ -85,7 +85,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input id="password" type="password" class="form-control is-invalid" name="password" value="" required  placeholder="password">
+                        <input id="password" type="password" class="form-control is-invalid" name="password" value="" required  placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -93,7 +93,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input id="konform_password" type="password" class="form-control is-invalid" value="" required  placeholder="Konfirmasi password">
+                        <input id="konform_password" type="password" class="form-control is-invalid" value="" required  placeholder="Konfirmasi Password">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -101,7 +101,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="" required  placeholder="No HandPhone">
+                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="" required  placeholder="No Handphone">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -110,7 +110,7 @@
                         <span class="input-group-text"><i class="fa fa-gender"></i></span>
                         </div>
                         <select class="form-control" name="jk">
-                            <option value="">-Pilih-</option>
+                            <option value="">-Jenis Kelamin-</option>
                             <option value="L">Laki - laki</option>
                             <option value="P">Perempuan</option>
                         </select>
@@ -121,7 +121,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-locations"></i></span>
                         </div>
-                        <textarea class="form-control" name="alamat" placeholder="Alamat" required></textarea>
+                        <textarea class="form-control" name="alamat" placeholder="Alamat Rumah" required></textarea>
                     </div>
                 </div>
 
@@ -143,7 +143,7 @@
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-12">
             <div class="copyright text-center text-xl-left text-muted">
-                <center>© 2022 SI Pegawai Ferdi</center>
+                <center>© 2022 Aplikasi Booking SM Detailing</center>
             </div>
           </div>
 

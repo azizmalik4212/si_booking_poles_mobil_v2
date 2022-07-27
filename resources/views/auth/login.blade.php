@@ -29,7 +29,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
               <h1 class="text-white">Selamat Datang di SM Detailing</h1>
-              <p class="text-lead text-light">Silakan login dengan kredensial Anda, selamat bekerja :)</p>
+              <p class="text-lead text-light">Layanan Jasa Auto Detailing Mobil</p>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="username">
+                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
 
                     @error('username')
                         <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
 
                     @error('password')
                         <span class="invalid-feedback" role="alert">
