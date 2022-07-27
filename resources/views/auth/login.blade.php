@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        SI Pegawai - WSA Toserba
+        Aplikasi Booking SM Detailing
     </title>
     <!-- Favicon -->
-    <link href="{{ asset('assets/img/logo_wsa2.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('assets/img/logo_SM2.png') }}" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
@@ -28,7 +28,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Selamat Datang di WSA Toserba!</h1>
+              <h1 class="text-white">Selamat Datang di SM Detailing</h1>
               <p class="text-lead text-light">Silakan login dengan kredensial Anda, selamat bekerja :)</p>
             </div>
           </div>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-2 w-100">{{ __('Login') }}</button>
+                  <button type="submit" class="btn btn-primary my-2 w-100">{{ __('LOGIN') }}</button>
                   <a href="{{ route('registerMenu') }}"> <button type="button" class="btn btn-success my-2 w-100">REGISTER</button></a>
                 </div>
               </form>
@@ -97,7 +97,7 @@
         <div class="row align-items-center justify-content-xl-between">
           <div class="col-xl-12">
             <div class="copyright text-center text-xl-left text-muted">
-                <center>© 2022 SI Pegawai Ferdi</center>
+                <center>© 2022 Aplikasi Booking SM Detailing</center>
             </div>
           </div>
 
