@@ -38,11 +38,10 @@
                 <span>My profile</span>
             </a>
             <div class="dropdown-divider"></div>
-             <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
             </a>
-
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
@@ -80,14 +79,11 @@
         </form>
         <!-- Navigation -->
         <ul class="navbar-nav">
-
             <li class="nav-item  active ">
             <a class="nav-link  active " href="{{ route('home') }}">
                 <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
             </li>
-
-
             <li class="nav-item">
                 <a class="nav-link " href="{{ route('getDataUser') }}">
                     <i class="fa fa-users text-blue"></i> Data Users

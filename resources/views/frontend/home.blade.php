@@ -26,10 +26,10 @@
     <link href="assets_frontend/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="assets_frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href={{ asset('assets_frontend/css/bootstrap.min.css') }} rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="assets_frontend/css/style.css" rel="stylesheet">
+    <link href={{ asset('assets_frontend/css/style.css') }} rel="stylesheet">
 </head>
 
 <body>
@@ -88,15 +88,25 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Transaksi</a>
                     <div class="dropdown-menu fade-up m-0">
-                        <a href="team.html" class="dropdown-item">Akun</a>
-                        <a href="booking.html" class="dropdown-item">Booking</a>
-                        <a href="team.html" class="dropdown-item">Pembayaran</a>
+                        <a href="#" class="dropdown-item">Booking</a>
+                        <a href="#" class="dropdown-item">Pembayaran</a>
+                        {{-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Page</a> --}}
+                    </div>
+                </div>
+                <!-- Ne Senah lamen sube login-->
+                <div class="nav-item dropdown">
+                    <a href="{{ url('/login') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Nama User</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="team.html" class="dropdown-item">Profil Saya</a>
+                        <a href="booking.html" class="dropdown-item">Logout</a>
                         {{-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a> --}}
                     </div>
                 </div>
                 <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
             </div>
+            <!-- Lamen nden login ke halaman Login, Lamen Sube Login ke form booking-->
             <a href="{{ url('/login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Booking Sekarang<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
@@ -341,12 +351,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    <h3 class="mb-3">Perawatan Kaca Mobil</h3>
+                                    <p class="mb-4">Kaca mobil merupakan komponen yang memerlukan perawatan. Untuk perawatan pada kaca berbeda dengan bodi. Karena kebersihan kaca mempengaruhi tampilan mobil dan penglihatan pengemudi.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Jamur</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Flek</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Baret</p>
+                                    {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -359,12 +369,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    <h3 class="mb-3">Perawatan Interior Mobil</h3>
+                                    <p class="mb-4">Anda bisa berkendara dengan nyaman bukan hanya dari segi mesin mobil yang prima tetapi juga kabin selalu bersih. Membersihkan interior mobil bukan hanya membawa kenyamanan tetapi Anda yang menggunakannya juga terjaga kesehatannya.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Plafon</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Jok Mobil</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Dashboard</p>
+                                    {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -377,12 +387,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    <h3 class="mb-3">Perawatan Exterior Mobil</h3>
+                                    <p class="mb-4">Cat mobil memerlukan perawatan agar tetap mengkilap dan tahan lama. Jika tidak dilakukan perawatan yang benar, cat akan menjadi kusam. Jika hal itu terjadi, maka penampilan dari mobil Anda akan menjadi kurang menarik. Oleh karena itu, diperlukan perawatan agar cat tetap mengkilap dan tahan lama.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Bodi Mobil</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Velg</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Lampu Mobil</p>
+                                    {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -395,12 +405,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h3 class="mb-3">15 Years Of Experience In Auto Servicing</h3>
-                                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Quality Servicing</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Expert Workers</p>
-                                    <p><i class="fa fa-check text-success me-3"></i>Modern Equipment</p>
-                                    <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    <h3 class="mb-3">Pembersihan Mesin Mobil</h3>
+                                    <p class="mb-4">Meski selalu tertutup, ternyata ruang mesin pada mobil juga bisa terpapar oleh debu dan kotoran. Oleh sebab itu, anda pelu membersihkan mesin mobil yang tepat agar ruang dapur pacu tetap terjaga performanya.</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Debu & Kotoran</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Mesin</p>
+                                    <p><i class="fa fa-check text-success me-3"></i>Radiator</p>
+                                    {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a> --}}
                                 </div>
                             </div>
                         </div>
@@ -659,14 +669,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets_frontend/lib/wow/wow.min.js"></script>
-    <script src="assets_frontend/lib/easing/easing.min.js"></script>
-    <script src="assets_frontend/lib/waypoints/waypoints.min.js"></script>
-    <script src="assets_frontend/lib/counterup/counterup.min.js"></script>
-    <script src="assets_frontend/lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="assets_frontend/lib/tempusdominus/js/moment.min.js"></script>
-    <script src="assets_frontend/lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="assets_frontend/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src={{ asset('assets_frontend/lib/wow/wow.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/easing/easing.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/waypoints/waypoints.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/counterup/counterup.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/owlcarousel/owl.carousel.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/tempusdominus/js/moment.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/tempusdominus/js/moment-timezone.min.js') }}></script>
+    <script src={{ asset('assets_frontend/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}></script>
 
     <!-- Template Javascript -->
     <script src="assets_frontend/js/main.js"></script>
