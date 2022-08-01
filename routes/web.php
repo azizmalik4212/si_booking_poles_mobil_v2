@@ -40,6 +40,10 @@ Route::get('/user/data/', [UsersController::class, 'index'])->name('getDataUser'
 Route::post('/user/add', [UsersController::class, 'addUser'])->name('addDataUser');
 Route::post('/user/edit', [UsersController::class, 'updateUser'])->name('updateDataUser');
 Route::post('/user/delete', [UsersController::class, 'deleteUser'])->name('deleteDataUser');
+//user menu
+Route::get('/user/booking/', [UsersController::class, 'orderPage'])->name('getBookingUser');
+Route::get('/user/list-booking-user/', [UsersController::class, 'listOrderPage'])->name('getDataListBookingUser');
+Route::get('/user/pembayaran/', [UsersController::class, 'pembayaranPage'])->name('getPembayaranUser');
 
 
 //ListBooking Controller
