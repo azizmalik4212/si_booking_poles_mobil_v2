@@ -154,40 +154,12 @@
                 {{ csrf_field() }}
               <input type="hidden" id="id_edit" name="id_edit">
               <div class="form-group">
-                <label for="exampleInputEmail1">Nama User</label>
-                <input type="text" name="nama" class="form-control" id="nama_edit" aria-describedby="emailHelp" placeholder="Masukkan nama user" required>
+                <label for="exampleInputEmail1">Jenis Layanan</label>
+                <input type="text" name="jenis_layanan" class="form-control" id="jenis_layanan_edit" aria-describedby="emailHelp" placeholder="Masukkan jenis layanan" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">No Hp</label>
-                <input type="text" name="hp" class="form-control" id="hp_edit" aria-describedby="emailHelp" placeholder="Masukkan no hp user" required>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Alamat</label>
-                <textarea class="form-control" name="alamat" id="alamat_edit" placeholder="Masukkan alamat user" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Jenis kelamin</label>
-                <select class="form-control" name="jk" id=" jk_edit" required>
-                    <option value="">-Pilih-</option>
-                    <option value="L">Laki - laki</option>
-                    <option value="P">Perempuan</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" name="username" class="form-control" id="username_edit" aria-describedby="emailHelp" placeholder="Username" required>
-              </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="password_edit" placeholder="Password" required>
-                </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Jabatan</label>
-                <select class="form-control" name="role" id="role_edit" required>
-                    <option value="">-Pilih-</option>
-                    <option value="admin">Admin</option>
-                    <option value="user">User</option>
-                </select>
+                <label for="exampleInputEmail1">Harga</label>
+                <input type="number" name="harga" class="form-control" id="harga_edit" aria-describedby="emailHelp" placeholder="Masukkan harga" required>
               </div>
               <div style="text-align: right;margin-top:50px;">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
