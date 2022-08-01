@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Layanan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class bookingController extends Controller
@@ -23,6 +24,7 @@ class bookingController extends Controller
         $data['dataLayanan'] = Layanan::get();
         $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
         $data['no_booking']='BOOK_'.$this->leadingZero($data['getLastId'] + 1);
+
         if ($request['status'] == null)
             $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
         else
@@ -55,7 +57,11 @@ class bookingController extends Controller
             else
                 $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
         }
-        return redirect()->back()->with($response);
+
+        if (Auth::user()->role == 'user')
+            return redirect('/user/pembayaran/');
+        else
+            return redirect()->back()->with($response);
     }
 
     public function update(Request $request){

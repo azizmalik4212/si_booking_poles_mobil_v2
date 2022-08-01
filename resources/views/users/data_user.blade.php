@@ -151,6 +151,10 @@
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" required>
               </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">E-Mail</label>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Masukkan email" required>
+              </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
@@ -211,6 +215,10 @@
                 <label for="exampleInputEmail1">Username</label>
                 <input type="text" name="username" class="form-control" id="username_edit" aria-describedby="emailHelp" placeholder="Username" required>
               </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">E-Mail</label>
+                <input type="email" name="email" class="form-control" id="email_edit" aria-describedby="emailHelp" placeholder="Masukkan email" required>
+              </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="password_edit" placeholder="Password" required>
@@ -248,7 +256,13 @@
               buttons: [
                   {
                       extend: 'csv',
-                      text: '<i class="fa fa-file"></i> Cetak '+titlePage,
+                      title:titlePage,
+                      exportOptions: {
+                          // columns: [ 0, 1, 2, 3]
+                      }
+                  },
+                  {
+                      extend: 'pdfHtml5',
                       title:titlePage,
                       exportOptions: {
                           // columns: [ 0, 1, 2, 3]

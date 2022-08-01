@@ -23,7 +23,7 @@
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Gagal!</strong> {{ session()->get('message') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria- ="true">&times;</span>
             </button>
         </div>
         @endif
@@ -82,6 +82,7 @@
                                     <th scope="col">Pelanggan</th>
                                     <th scope="col">Layanan</th>
                                     <th scope="col">Kendaraan</th>
+                                    <th scope="col">Alamat</th>
                                     <th scope="col">Dekskripsi</th>
                                     <th scope="col">Status</th>
                                     <th scope="col"><center>Aksi</center></th>
@@ -99,6 +100,7 @@
                                     <td>{{$item->nama}}</td>
                                     <td>{{$item->jenis_layanan}}</td>
                                     <td>{{$item->kendaraan}}</td>
+                                    <td>{{$item->alamat ?? '-'}}</td>
                                     <td>{{$item->deskripsi}}</td>
                                     <td>
                                         @if($item->status=='WAITING')
@@ -189,6 +191,10 @@
                 <input type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Alamat</label>
+                <textarea class="form-control" name="alamat" id="alamat" placeholder="Masukkan alamat"></textarea>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">Data user</label>
                 <select class="form-control" name="id_user" id="id_user" required>
                     <option value="">-Pilih-</option>
@@ -258,6 +264,10 @@
                 <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Alamat</label>
+                <textarea class="form-control" name="alamat" id="alamat_edit"  placeholder="Masukkan alamat"></textarea>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">Data user</label>
                 <select class="form-control" name="id_user" id="id_user_edit" required>
                     <option value="">-Pilih-</option>
@@ -311,7 +321,13 @@
               buttons: [
                   {
                       extend: 'csv',
-                      text: '<i class="fa fa-file"></i> Cetak '+titlePage,
+                      title:titlePage,
+                      exportOptions: {
+                          // columns: [ 0, 1, 2, 3]
+                      }
+                  },
+                  {
+                      extend: 'pdfHtml5',
                       title:titlePage,
                       exportOptions: {
                           // columns: [ 0, 1, 2, 3]

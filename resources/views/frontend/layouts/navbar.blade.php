@@ -1,20 +1,31 @@
-<nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-primary sticky-top p-0">
-    <a href="index.html" class="navbar-brand bg-primary d-flex align-items-center px-4 px-lg-5">
-        <h2 class="mb-2 text-white">PT. EDI JAYA AGUNG</h2>
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+    <a href="/" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-dark"><span><img src="{{ asset('assets/img/logo_SM1.png') }}" width="50px">&nbsp;&nbsp;Detailing</span></h2>
     </a>
     <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            {{-- <a href="about.html" class="nav-item nav-link">About</a> --}}
-            {{-- <a href="service.html" class="nav-item nav-link">Contact</a> --}}
+            <a href="#" class="nav-item nav-link active">Beranda</a>
+            <a href="#Aboutus" class="nav-item nav-link">Tentang</a>
+            <a href="#Service" class="nav-item nav-link">Layanan</a>
             @if (Auth::user())
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{ @Auth::user()->username }}</a>
-                    <div class="dropdown-menu fade-up m-0">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Transaksi</a>
+                <div class="dropdown-menu fade-up m-0">
+                    <a href="{{ route('getDataListBookingUser') }}" class="dropdown-item">Booking</a>
+                    <a href="{{ route('getPembayaranUser') }}" class="dropdown-item">Pembayaran</a>
+                    {{-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    <a href="404.html" class="dropdown-item">404 Page</a> --}}
+                </div>
+            </div>
+            <!-- Ne Senah lamen sube login-->
+            <div class="nav-item dropdown">
+                <a href="{{ url('/login') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{Auth::user()->nama}}</a>
+                <div class="dropdown-menu fade-up m-0">
+                    <a href="team.html" class="dropdown-item">Profil Saya</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -22,13 +33,16 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
-                        </form>
-                    </div>
+                    </form>
+                    {{-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    <a href="404.html" class="dropdown-item">404 Page</a> --}}
                 </div>
+            </div>
             @else
-                <a href="{{ url('/logged-in') }}" class="nav-item nav-link">Login</a>
+            <a href="{{ url('/login') }}" class="nav-item nav-link">Login</a>
             @endif
         </div>
-        <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-primary me-3"></i>+62 361 34589</h4>
+        <!-- Lamen nden login ke halaman Login, Lamen Sube Login ke form booking-->
+        <a href="{{ route('getBookingUser') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Booking Sekarang<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>

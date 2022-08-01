@@ -31,19 +31,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->role == 'user') {
+            return $this->landingPage();
+        }
         $data['tittle']='Dashboard';
         $data['countUsers'] = User::where('role','user')->count();
         $data['countPesanan'] = Booking::where('status','WAITING')->count();
         $data['countPesananDone'] = Booking::where('status','COMPLETED')->count();
         $data['countPembayaranPending'] = Pembayaran::where('status','WAITING')->count();
-        // $data['countCuti'] = Cuti::count();
-        // $data['countKegiatan'] = KegiatanPegawai::count();
-        // $data['jabatan'] = Auth::user()->jabatan;
-        // if ($data['jabatan']=='admin') {
-        //     $data['absensiData'] = Absensi::select("tb_absensi.*", "users.name")->join("users", "tb_absensi.id_user", "users.id")->whereDate('tanggal',date('Y-m-d'))->orderBy('tanggal', 'DESC')->get();
-        // }else {
-        //     $data['absensiData'] = Absensi::select("tb_absensi.*",  "users.name")->join("users", "tb_absensi.id_user", "users.id")->where('users.id',Auth::user()->id)->orderBy('tanggal', 'DESC')->get();
-        // }
         return view('home', $data);
     }
 

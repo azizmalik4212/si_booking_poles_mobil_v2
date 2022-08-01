@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
+use App\Models\Layanan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
 
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         date_default_timezone_set("Asia/Makassar");
         $this->global_exceptKey = ['_tokens', '_token', 'id_edit'];
     }
@@ -76,5 +79,37 @@ class UsersController extends Controller
             $response = ['status' => 'gagal', 'message' => 'Data gagal dihapus'];
 
         return redirect()->back()->with($response);
+    }
+
+    public function orderPage(){
+        $data['dataUser'] = Auth::user();
+        $data['dataLayanan'] = Layanan::get();
+        $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
+        $data['no_booking']='BOOK_'.$this->leadingZero($data['getLastId'] + 1);
+        return view('frontend.booking_user.booking_page',$data);
+    }
+
+    public function listOrderPage(){
+        $data['dataUser'] = Auth::user();
+        $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('id_user',Auth::user()->id)->get();
+        return view('frontend.booking_user.list_booking_user',$data);
+    }
+
+    public function pembayaranPage(){
+        $data['dataUser'] = Auth::user();
+        $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('id_user',Auth::user()->id)->get();
+        return view('frontend.pembayaran_user.pembayaran_user',$data);
+    }
+
+    private function leadingZero($no){
+        $no_of_digit = 3;
+        $number = $no ?? 0;
+        $length = strlen((string)$number);
+        for($i = $length;$i<$no_of_digit;$i++)
+        {
+            $number = '0'.$number;
+        }
+
+        return $number;
     }
 }

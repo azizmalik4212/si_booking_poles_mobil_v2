@@ -225,7 +225,13 @@
               buttons: [
                   {
                       extend: 'csv',
-                      text: '<i class="fa fa-file"></i> Cetak '+titlePage,
+                      title:titlePage,
+                      exportOptions: {
+                          // columns: [ 0, 1, 2, 3]
+                      }
+                  },
+                  {
+                      extend: 'pdfHtml5',
                       title:titlePage,
                       exportOptions: {
                           // columns: [ 0, 1, 2, 3]

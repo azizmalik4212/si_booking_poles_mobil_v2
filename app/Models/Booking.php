@@ -14,6 +14,7 @@ class Booking extends Model
         'tgl_booking',
         'kendaraan',
         'deskripsi',
+        'alamat',
         'status',
         'id_user',
         'id_layanan',
