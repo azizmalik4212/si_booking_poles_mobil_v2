@@ -41,6 +41,7 @@ Route::post('/user/add', [UsersController::class, 'addUser'])->name('addDataUser
 Route::post('/user/edit', [UsersController::class, 'updateUser'])->name('updateDataUser');
 Route::post('/user/delete', [UsersController::class, 'deleteUser'])->name('deleteDataUser');
 //user menu
+Route::get('/user/profile/', [UsersController::class, 'profileUser'])->name('getProfileUser');
 Route::get('/user/booking/', [UsersController::class, 'orderPage'])->name('getBookingUser');
 Route::get('/user/list-booking-user/', [UsersController::class, 'listOrderPage'])->name('getDataListBookingUser');
 Route::get('/user/pembayaran/', [UsersController::class, 'pembayaranPage'])->name('getPembayaranUser');
@@ -66,6 +67,7 @@ Route::get('/pembayaran/data/', [pembayaranController::class, 'index'])->name('g
 Route::post('/pembayaran/add', [pembayaranController::class, 'add'])->name('addDataPembayaran');
 Route::post('/pembayaran/edit', [pembayaranController::class, 'update'])->name('updateDataPembayaran');
 Route::post('/pembayaran/delete', [pembayaranController::class, 'delete'])->name('deleteDataPembayaran');
+Route::post('/pembayaran/upload-bukti', [pembayaranController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran');
 
 //Kegiatan Controller
 Route::get('/kegiatan/data/', [KegiatanController::class, 'index'])->name('getDataKegiatan');

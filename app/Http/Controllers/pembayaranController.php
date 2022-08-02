@@ -72,4 +72,28 @@ class pembayaranController extends Controller
 
         return redirect()->back()->with($response);
     }
+
+    public function uploadBuktiPembayaran(Request $request){
+        $data = $request->except($this->global_exceptKey);
+
+        if ($request->file("bukti") != null) {
+            $imageName = time() . '.' . $request->file("bukti")->extension();
+            $request->file("bukti")->move(public_path('upload/bukti_bayar'), $imageName);
+            $data['bukti'] = $imageName;
+        }
+
+        $cekData = Pembayaran::where('id_booking',$data['id_booking'])->count();
+        if ($cekData > 0) {
+            $action = Pembayaran::where("id_booking", $request['id_booking'])->update(['bukti' =>  $data['bukti']]);
+        } else {
+            $action = Pembayaran::create($data);
+        }
+
+        if ($action)
+            $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
+        else
+            $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+
+        return redirect()->back()->with($response);
+    }
 }

@@ -1,11 +1,25 @@
 @extends('frontend.layouts.app')
 @section('content')
+
  <!-- Service Start -->
 
 <!-- Service End -->
 
 
 <!-- Booking Start -->
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Pembayaran</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Pembayaran</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
 <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row gx-5">
@@ -54,6 +68,7 @@
                                         <th scope="col">Kendaraan</th>
                                         <th scope="col">Alamat</th>
                                         <th scope="col">Dekskripsi</th>
+                                        <th scope="col">Bukti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col"><center>Aksi</center></th>
                                     </tr>
@@ -72,6 +87,7 @@
                                         <td>{{$item->kendaraan}}</td>
                                         <td>{{$item->alamat ?? '-'}}</td>
                                         <td>{{$item->deskripsi}}</td>
+                                        <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" onerror="this.onerror=null; this.src='{{ asset('upload/bukti_bayar/no_image.png') }}'" class="rounded" width="100px"></a></td>
                                         <td>
                                             @if($item->status=='WAITING')
                                                 <i class="fa fa-clock text-warning" title="Menunggu Konfirmasi"></i>  <span class="text-warning">Menunggu Konfirmasi</span>
@@ -88,7 +104,10 @@
                                         <td>
                                             <center>
                                                 {{-- <button class="btn btn-primary btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen"></i></button> --}}
-                                                <button class="btn btn-success btn-sm" onclick="deleteData('{{$item->id}}')">Upload Bukti Bayar</button>
+                                                @if ($item->status != 'ACCEPT' or $item->status != 'REJECT')
+                                                <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}')">Upload Bukti Bayar</button>
+                                                @endif
+
                                             </center>
                                         </td>
                                     </tr>
@@ -103,11 +122,55 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modalUploadBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Upload bukti pembayaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('uploadBuktiPembayaran') }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <input type="hidden" name="id_booking" id="id_booking">
+                <input type="hidden" name="tgl_pembayaran" id="tgl_pembayaran" value="{{date('Y-m-d')}}">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
+                    <input type="file" name="bukti" class="form-control" id="bukti"required>
+                </div>
+
+                <div style="text-align: right;margin-top:50px;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-success">Upload</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
 <script>
+    jQuery.noConflict();
+    $("[data-toggle='modal']").modal();
+
     $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
         $(".alert-dismissible").alert('close');
     });
+
+    function uploadBukti(idBooking){
+        // var obj = data;
+        // $('#id_edit').val(idEdit);
+        // Object.entries(obj).forEach(([key, val]) => {
+        //     $('#'+key+'_edit').val(val);
+        //     $('#modalEdit').modal().show();
+        // });
+        $('#id_booking').val(idBooking);
+        $('#modalUploadBukti').modal().show();
+      }
 </script>
 <!-- Booking End -->
 @endsection

@@ -24,7 +24,7 @@
             <div class="nav-item dropdown">
                 <a href="{{ url('/login') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{Auth::user()->nama}}</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="team.html" class="dropdown-item">Profil Saya</a>
+                    <a href="{{route('getProfileUser')}}" class="dropdown-item">Profil Saya</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

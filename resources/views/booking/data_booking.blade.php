@@ -153,7 +153,7 @@
                 Hapus
             </button>
           </a>
-          <form id="destroy-form" action="{{ route('deleteDataLayanan') }}" method="POST" class="d-none">
+          <form id="destroy-form" action="{{ route('deleteDataBooking') }}" method="POST" class="d-none">
             {{ csrf_field() }}
              <input type="hidden" name="id_delete" id="id_delete">
            </form>

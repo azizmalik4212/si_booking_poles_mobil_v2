@@ -7,6 +7,7 @@ use App\Models\Layanan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -91,13 +92,19 @@ class UsersController extends Controller
 
     public function listOrderPage(){
         $data['dataUser'] = Auth::user();
+        $data['dataLayanan'] = Layanan::get();
         $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('id_user',Auth::user()->id)->get();
         return view('frontend.booking_user.list_booking_user',$data);
     }
 
     public function pembayaranPage(){
         $data['dataUser'] = Auth::user();
-        $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('id_user',Auth::user()->id)->get();
+        $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,tb_pembayaran.bukti from `tb_booking`
+        inner join `users` on `users`.`id` = `tb_booking`.`id_user`
+        inner join `tb_layanan` on `tb_booking`.`id_layanan` = `tb_layanan`.`id`
+        left join tb_pembayaran ON tb_booking.id = tb_pembayaran.id_booking
+        where `id_user` = ".@$data['dataUser']->id ?? 0 );
+
         return view('frontend.pembayaran_user.pembayaran_user',$data);
     }
 
@@ -111,5 +118,11 @@ class UsersController extends Controller
         }
 
         return $number;
+    }
+
+    public function profileUser(){
+        $data['tittle']='Profile user';
+        $data['dataUser'] = User::where('id',Auth::user()->id)->first();
+        return view('frontend.profile_user.profile_user_page', $data);
     }
 }
