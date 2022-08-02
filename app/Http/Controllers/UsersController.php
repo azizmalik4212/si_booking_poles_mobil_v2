@@ -99,7 +99,7 @@ class UsersController extends Controller
 
     public function pembayaranPage(){
         $data['dataUser'] = Auth::user();
-        $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,tb_pembayaran.bukti from `tb_booking`
+        $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,`tb_layanan`.`harga`,tb_pembayaran.bukti from `tb_booking`
         inner join `users` on `users`.`id` = `tb_booking`.`id_user`
         inner join `tb_layanan` on `tb_booking`.`id_layanan` = `tb_layanan`.`id`
         left join tb_pembayaran ON tb_booking.id = tb_pembayaran.id_booking

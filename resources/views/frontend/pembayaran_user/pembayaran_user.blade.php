@@ -105,7 +105,7 @@
                                             <center>
                                                 {{-- <button class="btn btn-primary btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen"></i></button> --}}
                                                 @if ($item->status != 'ACCEPT' or $item->status != 'REJECT')
-                                                <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}')">Upload Bukti Bayar</button>
+                                                <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}','{{$item->harga}}')">Upload Bukti Bayar</button>
                                                 @endif
 
                                             </center>
@@ -138,6 +138,10 @@
                 <input type="hidden" name="id_booking" id="id_booking">
                 <input type="hidden" name="tgl_pembayaran" id="tgl_pembayaran" value="{{date('Y-m-d')}}">
                 <div class="form-group">
+                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Total pembayaran</label>
+                    <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
+                </div>
+                <div class="form-group" style="margin-top: 20px">
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
                     <input type="file" name="bukti" class="form-control" id="bukti"required>
                 </div>
@@ -161,7 +165,7 @@
         $(".alert-dismissible").alert('close');
     });
 
-    function uploadBukti(idBooking){
+    function uploadBukti(idBooking,harga){
         // var obj = data;
         // $('#id_edit').val(idEdit);
         // Object.entries(obj).forEach(([key, val]) => {
@@ -169,6 +173,7 @@
         //     $('#modalEdit').modal().show();
         // });
         $('#id_booking').val(idBooking);
+        $('#total_bayar').val(harga);
         $('#modalUploadBukti').modal().show();
       }
 </script>
