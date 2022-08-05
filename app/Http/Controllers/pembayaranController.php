@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Booking;
 use App\Models\Pembayaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class pembayaranController extends Controller
 {
@@ -17,7 +18,8 @@ class pembayaranController extends Controller
 
     public function index(){
         $data['tittle']='Data pembayaran';
-        $data['dataBooking'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
+        $data['dataBookingEdit'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
+        $data['dataBookingAdd'] = DB::select("select `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan` from `tb_booking` inner join `users` on `users`.`id` = `tb_booking`.`id_user` inner join `tb_layanan` on `tb_booking`.`id_layanan` = `tb_layanan`.`id` WHERE tb_booking.id NOT IN (SELECT id_booking FROM tb_pembayaran)");
         $data['dataSql'] = Pembayaran::select("tb_pembayaran.*", "tb_booking.no_booking","tb_booking.kendaraan","tb_layanan.jenis_layanan")->join("tb_booking", "tb_booking.id","tb_pembayaran.id_booking")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
         return view('pembayaran.data_pembayaran', $data);
     }

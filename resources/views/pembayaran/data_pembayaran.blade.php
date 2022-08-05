@@ -145,7 +145,7 @@
                 <label for="exampleInputEmail1">Data booking</label>
                 <select class="form-control" name="id_booking" id="id_booking" required>
                     <option value="">-Pilih-</option>
-                    @foreach ($dataBooking as $row)
+                    @foreach ($dataBookingAdd as $row)
                     <option value="{{$row->id}}">{{$row->no_booking}} - {{$row->kendaraan}} - {{$row->jenis_layanan}}</option>
                     @endforeach
                 </select>
@@ -186,7 +186,7 @@
                 <label for="exampleInputEmail1">Data booking</label>
                 <select class="form-control" name="id_booking" id="id_booking_edit" required>
                     <option value="">-Pilih-</option>
-                    @foreach ($dataBooking as $row)
+                    @foreach ($dataBookingEdit as $row)
                     <option value="{{$row->id}}">{{$row->no_booking}} - {{$row->kendaraan}} - {{$row->jenis_layanan}}</option>
                     @endforeach
                 </select>

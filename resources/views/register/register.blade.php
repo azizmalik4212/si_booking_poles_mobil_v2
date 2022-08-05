@@ -82,6 +82,15 @@
 
                 <div class="form-group mb-3">
                     <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                      </div>
+                      <input id="email" type="text" class="form-control is-invalid" name="email" value="" autofocus placeholder="E-Mail">
+                    </div>
+                  </div>
+
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-alternative">
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>

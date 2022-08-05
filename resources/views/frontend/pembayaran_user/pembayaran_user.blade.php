@@ -63,11 +63,9 @@
                                         <th scope="col">#no</th>
                                         <th scope="col">No booking</th>
                                         <th scope="col">Tgl booking</th>
-                                        <th scope="col">Pelanggan</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Kendaraan</th>
-                                        <th scope="col">Alamat</th>
-                                        <th scope="col">Dekskripsi</th>
+                                        <th scope="col">Tgl pembayaran</th>
                                         <th scope="col">Bukti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col"><center>Aksi</center></th>
@@ -82,11 +80,9 @@
                                         <th scope="row">{{$no++}}</th>
                                         <td>{{$item->no_booking}}</td>
                                         <td>{{date('d-m-Y',strtotime($item->tgl_booking))}}</td>
-                                        <td>{{$item->nama}}</td>
                                         <td>{{$item->jenis_layanan}}</td>
                                         <td>{{$item->kendaraan}}</td>
-                                        <td>{{$item->alamat ?? '-'}}</td>
-                                        <td>{{$item->deskripsi}}</td>
+                                        <td>{{ $item->tgl_pembayaran==null ? ' - ' : date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
                                         <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" onerror="this.onerror=null; this.src='{{ asset('upload/bukti_bayar/no_image.png') }}'" class="rounded" width="100px"></a></td>
                                         <td>
                                             @if($item->status=='WAITING')
@@ -104,7 +100,7 @@
                                         <td>
                                             <center>
                                                 {{-- <button class="btn btn-primary btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen"></i></button> --}}
-                                                @if ($item->status != 'ACCEPT' or $item->status != 'REJECT')
+                                                @if (in_array($item->status,['WAITING','ON_PROGRESS','COMPLETED']))
                                                 <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}','{{$item->harga}}')">Upload Bukti Bayar</button>
                                                 @endif
 
@@ -141,9 +137,9 @@
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Total pembayaran</label>
                     <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
                 </div>
-                <div class="form-group" style="margin-top: 20px">
+                <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
-                    <input type="file" name="bukti" class="form-control" id="bukti"required>
+                    <input type="file" name="bukti" class="form-control" style="background-color: #fff" id="bukti"required>
                 </div>
 
                 <div style="text-align: right;margin-top:50px;">

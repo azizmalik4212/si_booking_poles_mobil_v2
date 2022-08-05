@@ -14,12 +14,12 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
         date_default_timezone_set("Asia/Makassar");
         $this->global_exceptKey = ['_tokens', '_token', 'id_edit'];
     }
 
     public function index(){
+        $this->middleware('auth');
         $data['tittle']='Data users';
         $data['sqlUser'] = User::get();
         return view('users.data_user', $data);
@@ -32,6 +32,7 @@ class UsersController extends Controller
     }
 
     public function addUser(Request $request){
+        $this->middleware('auth');
         $dataPost = $request->input();
         $data = $request->except("_tokens");
         // $data['password'] = bcrypt($dataPost['password']);
@@ -60,6 +61,7 @@ class UsersController extends Controller
     }
 
     public function updateUser(Request $request){
+        $this->middleware('auth');
         $dataEdit = $request->except($this->global_exceptKey);
 
         $action = User::where("id", $request['id_edit'])->update($dataEdit);
@@ -72,6 +74,7 @@ class UsersController extends Controller
     }
 
     public function deleteUser(Request $request) {
+        $this->middleware('auth');
         $action = User::where("id", $request['id_delete'])->delete();
 
         if ($action)
@@ -99,7 +102,7 @@ class UsersController extends Controller
 
     public function pembayaranPage(){
         $data['dataUser'] = Auth::user();
-        $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,`tb_layanan`.`harga`,tb_pembayaran.bukti from `tb_booking`
+        $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,`tb_layanan`.`harga`,tb_pembayaran.bukti,tgl_pembayaran from `tb_booking`
         inner join `users` on `users`.`id` = `tb_booking`.`id_user`
         inner join `tb_layanan` on `tb_booking`.`id_layanan` = `tb_layanan`.`id`
         left join tb_pembayaran ON tb_booking.id = tb_pembayaran.id_booking

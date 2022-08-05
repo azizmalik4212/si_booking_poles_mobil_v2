@@ -98,8 +98,8 @@
                                         </td>
                                         <td>
                                             <center>
-                                                @if ($item->status=='WAITING')
-                                                <button class="btn btn-info btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen text-white"></i></button>
+                                                @if ($item->status=='WAITING' or $item->status=='PAID')
+                                                <button class="btn btn-info btn-sm" onclick="editData({{$item}},'{{$item->id}}','{{$item->status}}')"><i class="fas fa-pen text-white"></i></button>
                                                 <button class="btn btn-danger btn-sm" onclick="deleteData('{{$item->id}}')"><i class="fas fa-times"></i></button>
                                                 @endif
                                             </center>
@@ -117,7 +117,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -130,36 +130,27 @@
             <form action="{{ route('updateDataBooking') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <input type="hidden" id="id_edit" name="id_edit">
-              <div class="form-group">
+              <div class="form-group" id="row_no_booking">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">No booking</label>
                 <input type="text" name="no_booking" class="form-control" id="no_booking_edit" placeholder="" required readonly>
              </div>
-              <div class="form-group">
+              <div class="form-group" id="row_tgl_booking">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tgl booking</label>
                 <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" aria-describedby="emailHelp" placeholder="" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" id="row_kendaraan">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Kendaraan</label>
                 <input type="text" name="kendaraan" class="form-control" id="kendaraan_edit" aria-describedby="emailHelp" placeholder="Masukkan data kendaraan" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" id="row_deskripsi">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Deskripsi</label>
                 <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
               </div>
-              <div class="form-group">
+              <div class="form-group" id="row_alamat">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Alamat</label>
                 <textarea class="form-control" name="alamat" id="alamat_edit"  placeholder="Masukkan alamat"></textarea>
               </div>
-              {{-- <div class="form-group">
-                <label for="exampleInputEmail1">Data user</label>
-                <select class="form-control" name="id_user" id="id_user_edit" required>
-                    <option value="">-Pilih-</option>
-                    @foreach ($dataUser as $row)
-                    <option value="{{$row->id}}">{{$row->nama}}</option>
-                    @endforeach
-                </select>
-              </div> --}}
-              <div class="form-group">
+              <div class="form-group" id="row_id_layanan">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Data layanan</label>
                 <select class="form-control" name="id_layanan" id="id_layanan_edit" required style="background-color: #fff">
                     <option value="">-Pilih-</option>
@@ -168,17 +159,33 @@
                     @endforeach
                 </select>
               </div>
-              {{-- <div class="form-group">
-                <label for="exampleInputEmail1">Status</label>
-                <select class="form-control" name="status" id="status_edit" required>
-                    <option value="">-Pilih-</option>
-                    <option value="WAITING">menunggu Konfirmasi</option>
-                    <option value="ON_PROGRESS">Sedang Dikerjakan</option>
-                    <option value="COMPLETED">Selesai</option>
-                    <option value="PAID">Dibayar</option>
-                    <option value="REJECT">Ditolak</option>
-                </select>
-              </div> --}}
+              <div style="text-align: right;margin-top:50px;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Simpan</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalEdit2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Edit Booking</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('updateDataBooking') }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              <input type="hidden" id="id_edit2" name="id_edit">
+              <div class="form-group" id="row_tgl_booking">
+                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tgl booking</label>
+                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit2" aria-describedby="emailHelp" placeholder="" required>
+              </div>
               <div style="text-align: right;margin-top:50px;">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-success">Simpan</button>
@@ -219,23 +226,30 @@
   </div>
 <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
 <script>
-    $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
-        $(".alert-dismissible").alert('close');
-    });
 
-    function editData(data,idEdit){
+
+    function editData(data,idEdit,status){
         var obj = data;
+
         $('#id_edit').val(idEdit);
+        $('#id_edit2').val(idEdit);
         Object.entries(obj).forEach(([key, val]) => {
             $('#'+key+'_edit').val(val);
-            $('#modalEdit').modal().show();
+            $('#'+key+'_edit2').val(val);
         });
+        if (status == 'WAITING') {
+            $('#modalEdit').modal().show();
+        } else {
+            $('#modalEdit2').modal().show();
+        }
+
       }
 
       function deleteData(id){
         $('#id_delete').val(id);
         $('#modalDelete').modal().show();
       }
+
 </script>
 <!-- Booking End -->
 @endsection

@@ -58,22 +58,39 @@ class bookingController extends Controller
                 $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
         }
 
-        if (Auth::user()->role == 'user')
-            return redirect('/user/pembayaran/');
-        else
+        if (@$action) {
+            if (Auth::user()->role == 'user')
+                return redirect('/user/pembayaran/');
+            else
+                return redirect()->back()->with($response);
+        } else {
             return redirect()->back()->with($response);
+        }
     }
 
     public function update(Request $request){
         $dataEdit = $request->except($this->global_exceptKey);
 
-        $action = Booking::where("id", $request['id_edit'])->update($dataEdit);
-        if ($action)
-            $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
-        else
-            $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+        $cekData = Booking::where('tgl_booking',$dataEdit['tgl_booking'])->whereNotIn('status',['REJECT'])->whereNotIn('id',[$request['id_edit']])->count();
+        if ($cekData > 0) {
+            $response = ['status' => 'gagal', 'message' => 'Sudah terdapat data booking pada tanggal yang sama, mohon melakukan booking pada tanggal yang berbeda'];
+        } else {
+            $action = Booking::where("id", $request['id_edit'])->update($dataEdit);
+            if ($action)
+                $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
+            else
+                $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+        }
 
-        return redirect()->back()->with($response);
+
+        if (@$action) {
+            if (Auth::user()->role == 'user')
+                return redirect('/user/list-booking-user/');
+            else
+                return redirect()->back()->with($response);
+        } else {
+            return redirect()->back()->with($response);
+        }
     }
 
     public function delete(Request $request) {

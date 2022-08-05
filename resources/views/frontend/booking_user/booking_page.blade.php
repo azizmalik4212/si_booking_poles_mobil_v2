@@ -60,25 +60,28 @@
                             <div class="col-12 col-sm-6">
                                 <input type="email" class="form-control border-0" placeholder="Your Email" value="{{$dataUser->email}}" readonly style="height: 55px;">
                             </div>
+                            <div class="col-12 col-sm-12">
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="date" name="tgl_booking" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
+                                </div>
+                            </div>
                             <div class="col-12 col-sm-6">
-                                <select class="form-select border-0" name="id_layanan" style="height: 55px;" required>
+                                <select class="form-select border-0" name="id_layanan" id="id_layanan" onchange="onchangeLayanan()" onclick="" style="height: 55px;" required>
                                     <option value="">Pilih Servis</option>
                                     @foreach ($dataLayanan as $row)
-                                        <option value="{{$row->id}}">{{$row->jenis_layanan}}</option>
+                                        <option value="{{$row->id}}" harga="{{$row->harga}}">{{$row->jenis_layanan}}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="col-12 col-sm-6">
-                                <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="date" name="tgl_booking" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
-                                </div>
+                                <input type="text" class="form-control border-0" id="harga_layanan" style="height: 55px;" placeholder="Harga" value="0" readonly>
                             </div>
                             <div class="col-12 col-sm-12">
                                 <input type="text" name="kendaraan" class="form-control border-0" style="height: 55px;" placeholder="Kendaraan" required>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0" name="deskripsi" placeholder="Deksripsi" required></textarea>
+                                <textarea class="form-control border-0" name="deskripsi" placeholder="Deksripsi (Opsional)"></textarea>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
@@ -92,9 +95,13 @@
 </div>
 <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
 <script>
-    $(".alert-dismissible").fadeTo(2000, 500).slideUp(500, function(){
-        $(".alert-dismissible").alert('close');
-    });
+
+    function onchangeLayanan(){
+        if ($("#id_layanan").val() == '') {
+            $("#harga_layanan").val('0');
+        } else {
+            $("#harga_layanan").val($("#id_layanan option:selected").attr("harga"));
+        }
+    }
 </script>
-<!-- Booking End -->
 @endsection
