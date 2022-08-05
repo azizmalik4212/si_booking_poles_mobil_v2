@@ -42,7 +42,7 @@ class pembayaranController extends Controller
         $dataEdit = $request->except($this->global_exceptKey);
 
         if (@$dataEdit['id_booking'] != null) {
-            if ($dataEdit['status'] == 'PAID') {
+            if ($dataEdit['status'] == 'ACCEPT') {
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'PAID']);
             } else {
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'REJECT']);
