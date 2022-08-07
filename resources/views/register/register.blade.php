@@ -110,7 +110,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="" required  placeholder="No Handphone">
+                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="" required  placeholder="No Handphone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
                     </div>
                 </div>
                 <div class="form-group mb-3">
