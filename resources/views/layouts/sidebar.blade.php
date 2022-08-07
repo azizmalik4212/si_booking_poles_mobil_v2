@@ -79,33 +79,33 @@
         </form>
         <!-- Navigation -->
         <ul class="navbar-nav">
-            <li class="nav-item  active ">
-            <a class="nav-link  active " href="{{ route('home') }}">
+            <li class="nav-item">
+            <a class="nav-link  {{ Request::is('home') ? 'active' : '' }} "href="{{ route('home') }}">
                 <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('getDataUser') }}">
+                <a class="nav-link {{ Request::is('user/data') ? 'active' : '' }}" href="{{ route('getDataUser') }}">
                     <i class="fa fa-users text-blue"></i> Data Users
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('getDataLayanan') }}">
+                <a class="nav-link {{ Request::is('layanan/data') ? 'active' : '' }} "href="{{ route('getDataLayanan') }}">
                     <i class="fa fa-box-open text-blue"></i> Data Layanan
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('getDataBooking') }}">
+                <a class="nav-link {{ Request::is('booking/data') ? 'active' : '' }} "href="{{ route('getDataBooking') }}">
                     <i class="fa fa-list text-blue"></i> Data Booking
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('getDataPembayaran') }}">
+                <a class="nav-link {{ Request::is('pembayaran/data') ? 'active' : '' }} "href="{{ route('getDataPembayaran') }}">
                     <i class="fa fa-coins text-blue"></i> Data Pembayaran
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="{{ route('getDataListBooking') }}">
+                <a class="nav-link {{ Request::is('list-booking/data') ? 'active' : '' }} "href="{{ route('getDataListBooking') }}">
                     <i class="fa fa-calendar text-blue"></i> List Booking
                 </a>
             </li>
