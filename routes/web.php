@@ -31,7 +31,7 @@ Route::get('/logged-in', function () {
 
 //LandingPage
 Route::get('/register', [LandingPageController::class, 'register'])->name('registerMenu');
-Route::post('/register-add', [LandingPageController::class, 'addUser'])->name('addRegister');
+Route::post('/register-add', [LandingPageController::class, 'addRegister'])->name('addRegister');
 
 //Home Controller
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');

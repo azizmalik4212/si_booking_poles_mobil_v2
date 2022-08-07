@@ -20,11 +20,10 @@ class LandingPageController extends Controller
         return view('register.register', $data);
     }
 
-
     public function addRegister(Request $request){
         $dataPost = $request->input();
         $data = $request->except("_tokens");
-        $data['password'] = bcrypt($dataPost['password']);
+        //$data['password'] = bcrypt($dataPost['password']);
 
         $action = User::create($data);
         if ($action)
