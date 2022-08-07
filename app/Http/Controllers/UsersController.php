@@ -14,7 +14,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
         date_default_timezone_set("Asia/Makassar");
         $this->global_exceptKey = ['_tokens', '_token', 'id_edit'];
     }

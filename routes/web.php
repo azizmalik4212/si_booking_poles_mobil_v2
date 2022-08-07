@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KegiatanPegawaiController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PdfController;
@@ -28,14 +29,15 @@ Route::get('/logged-in', function () {
     return redirect(route('login'));
 });
 
+//LandingPage
+Route::get('/register', [LandingPageController::class, 'register'])->name('registerMenu');
+Route::post('/register-add', [LandingPageController::class, 'addUser'])->name('addRegister');
 
 //Home Controller
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //User Controller
-Route::get('/register', [UsersController::class, 'register'])->name('registerMenu');
-Route::post('/register-add', [UsersController::class, 'addUser'])->name('addRegister');
 Route::get('/user/data/', [UsersController::class, 'index'])->name('getDataUser');
 Route::post('/user/add', [UsersController::class, 'addUser'])->name('addDataUser');
 Route::post('/user/edit', [UsersController::class, 'updateUser'])->name('updateDataUser');
