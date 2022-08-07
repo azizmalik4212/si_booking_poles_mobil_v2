@@ -78,6 +78,9 @@
                                 <input type="text" class="form-control border-0" id="harga_layanan" style="height: 55px;" placeholder="Harga" value="0" readonly>
                             </div>
                             <div class="col-12 col-sm-12">
+                                <input type="text" name="alamat" class="form-control border-0" style="height: 55px;" placeholder="Alamat" required>
+                            </div>
+                            <div class="col-12 col-sm-12">
                                 <input type="text" name="kendaraan" class="form-control border-0" style="height: 55px;" placeholder="Kendaraan" required>
                             </div>
                             <div class="col-12">
