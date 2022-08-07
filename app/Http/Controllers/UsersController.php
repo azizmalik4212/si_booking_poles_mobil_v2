@@ -14,6 +14,7 @@ class UsersController extends Controller
 
     public function __construct()
     {
+        // $this->middleware('auth');
         date_default_timezone_set("Asia/Makassar");
         $this->global_exceptKey = ['_tokens', '_token', 'id_edit'];
     }
@@ -86,6 +87,7 @@ class UsersController extends Controller
     }
 
     public function orderPage(){
+        $this->middleware('auth');
         $data['dataUser'] = Auth::user();
         $data['dataLayanan'] = Layanan::get();
         $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
@@ -94,6 +96,7 @@ class UsersController extends Controller
     }
 
     public function listOrderPage(){
+        $this->middleware('auth');
         $data['dataUser'] = Auth::user();
         $data['dataLayanan'] = Layanan::get();
         $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('id_user',Auth::user()->id)->get();
@@ -101,6 +104,7 @@ class UsersController extends Controller
     }
 
     public function pembayaranPage(){
+        $this->middleware('auth');
         $data['dataUser'] = Auth::user();
         $data['dataSql'] = DB::select("SELECT `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan`,`tb_layanan`.`harga`,tb_pembayaran.bukti,tgl_pembayaran from `tb_booking`
         inner join `users` on `users`.`id` = `tb_booking`.`id_user`

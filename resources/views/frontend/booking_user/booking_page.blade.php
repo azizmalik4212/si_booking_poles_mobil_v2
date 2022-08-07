@@ -51,14 +51,14 @@
                     <h1 class="text-white mb-4">Book For A Service</h1>
                     <form action="{{ route('addDataBooking') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <input type="hidden" name="id_user" class="form-control border-0" style="height: 55px;" value="{{$dataUser->id}}" readonly>
+                        <input type="hidden" name="id_user" class="form-control border-0" style="height: 55px;" value="{{@$dataUser->id}}" readonly>
                         <input type="hidden" name="no_booking" class="form-control border-0" style="height: 55px;" value="{{$no_booking}}" readonly>
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control border-0" style="height: 55px;" value="{{$dataUser->nama}}" readonly>
+                                <input type="text" class="form-control border-0" style="height: 55px;" value="{{@$dataUser->nama}}" readonly>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control border-0" placeholder="Your Email" value="{{$dataUser->email}}" readonly style="height: 55px;">
+                                <input type="email" class="form-control border-0" placeholder="Your Email" value="{{@$dataUser->email}}" readonly style="height: 55px;">
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="date" id="date1" data-target-input="nearest">

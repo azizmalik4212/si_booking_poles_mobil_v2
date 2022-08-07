@@ -205,7 +205,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Jenis kelamin</label>
-                <select class="form-control" name="jk" id=" jk_edit" required>
+                <select class="form-control" name="jk" id="jk_edit" required>
                     <option value="">-Pilih-</option>
                     <option value="L">Laki - laki</option>
                     <option value="P">Perempuan</option>

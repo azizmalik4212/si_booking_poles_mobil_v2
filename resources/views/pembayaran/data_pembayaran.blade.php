@@ -184,7 +184,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Data booking</label>
-                <select class="form-control" name="id_booking" id="id_booking_edit" required>
+                <select class="form-control" name="id_booking" id="id_booking_edit" style="pointer-events: none; background-color:#9e9e9e26;" required>
                     <option value="">-Pilih-</option>
                     @foreach ($dataBookingEdit as $row)
                     <option value="{{$row->id}}">{{$row->no_booking}} - {{$row->kendaraan}} - {{$row->jenis_layanan}}</option>
