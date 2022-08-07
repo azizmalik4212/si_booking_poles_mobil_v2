@@ -23,7 +23,7 @@
             </div>
             <a href="{{ route('home') }}s" class="dropdown-item">
               <i class="ni ni-single-02"></i>
-              <span>My profile</span>
+              {{-- <span>My profile</span> --}}
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"
