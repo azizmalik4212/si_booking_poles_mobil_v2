@@ -45,7 +45,7 @@
 
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-7">
-            @if(session()->has('status') && session()->get('status') == 'sukses')
+        @if(session()->has('status') && session()->get('status') == 'sukses')
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>

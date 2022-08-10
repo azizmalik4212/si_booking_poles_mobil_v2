@@ -29,14 +29,14 @@
                     @if (session()->get('status') == 'sukses')
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     @else
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Gagal!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria- ="true">&times;</span>
                         </button>
                     </div>
@@ -119,8 +119,8 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalUploadBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+{{-- <div class="modal fade" id="modalUploadBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLongTitle">Upload bukti pembayaran</h5>
@@ -150,7 +150,38 @@
         </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+<div class="modal fade" id="modalUploadBukti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('uploadBuktiPembayaran') }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <input type="hidden" name="id_booking" id="id_booking">
+                <input type="hidden" name="tgl_pembayaran" id="tgl_pembayaran" value="{{date('Y-m-d')}}">
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Total pembayaran</label>
+                    <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
+                </div>
+                <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
+                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
+                    <input type="file" name="bukti" class="form-control" style="background-color: #fff" id="bukti"required>
+                </div>
+
+                <div style="text-align: right;margin-top:50px;">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Batal</button>
+                <button type="submit" class="btn btn-success">Upload</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
 <script>
@@ -170,7 +201,7 @@
         // });
         $('#id_booking').val(idBooking);
         $('#total_bayar').val(harga);
-        $('#modalUploadBukti').modal().show();
+        $('#modalUploadBukti').modal('show');
       }
 </script>
 <!-- Booking End -->

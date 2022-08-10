@@ -46,4 +46,6 @@ class HomeController extends Controller
         $data['tittle']='Landing Page';
         return view('frontend.home', $data);
     }
+
+
 }

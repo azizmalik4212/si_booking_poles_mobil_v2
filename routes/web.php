@@ -32,6 +32,9 @@ Route::get('/logged-in', function () {
 //LandingPage
 Route::get('/register', [LandingPageController::class, 'register'])->name('registerMenu');
 Route::post('/register-add', [LandingPageController::class, 'addRegister'])->name('addRegister');
+Route::post('/validate-email', [LandingPageController::class, 'validateEmail'])->name('validateEmail');
+Route::get('/reset-password', [LandingPageController::class, 'resetPassword'])->name('resetPassword');
+Route::post('/reset-password-action', [LandingPageController::class, 'resetPasswordAction'])->name('resetPasswordAction');
 
 //Home Controller
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
@@ -42,12 +45,14 @@ Route::get('/user/data/', [UsersController::class, 'index'])->name('getDataUser'
 Route::post('/user/add', [UsersController::class, 'addUser'])->name('addDataUser');
 Route::post('/user/edit', [UsersController::class, 'updateUser'])->name('updateDataUser');
 Route::post('/user/delete', [UsersController::class, 'deleteUser'])->name('deleteDataUser');
+Route::post('/user/update-password', [UsersController::class, 'updatePassword'])->name('updatePassword');
 //user menu
 Route::get('/user/profile/', [UsersController::class, 'profileUser'])->name('getProfileUser');
+Route::get('/user/ganti-password/', [UsersController::class, 'gantiPassword'])->name('getGantiPassword');
 Route::get('/user/booking/', [UsersController::class, 'orderPage'])->name('getBookingUser');
 Route::get('/user/list-booking-user/', [UsersController::class, 'listOrderPage'])->name('getDataListBookingUser');
 Route::get('/user/pembayaran/', [UsersController::class, 'pembayaranPage'])->name('getPembayaranUser');
-
+Route::get('/user/jadwal-booking/', [UsersController::class, 'jadwalBooking'])->name('getJadwalBooking');
 
 //ListBooking Controller
 Route::get('/list-booking/data/', [bookingController::class, 'listBooking'])->name('getDataListBooking');
@@ -106,3 +111,21 @@ Route::get('/laporan/kegiatan/', [LaporanController::class, 'laporanDataKegiatan
 Route::get('/laporan/absensi/', [LaporanController::class, 'laporanDataAbsensi'])->name('getLaporanDataAbsensi');
 Route::get('/laporan/cuti/', [LaporanController::class, 'laporanDataCuti'])->name('getLaporanDataCuti');
 Route::get('/laporan/booking/', [LaporanController::class, 'laporanDataBooking'])->name('getLaporanDataBooking');
+
+// Route::get('email-test', function(){
+
+//     $details['email'] = 'malikabdulaziz1945@gmail.com';
+
+//     $test = dispatch(new App\Jobs\SendEmailJob($details));
+
+//     dd($test);
+// });
+Route::get('email-test', function(){
+    $details['email'] = 'leopartha019@gmail.com';
+    $data = dispatch(new App\Jobs\SendQueueEmail($details));
+    dd($data);
+});
+
+Route::get('isi-test', function(){
+    return view('emails.ganti_password');
+});

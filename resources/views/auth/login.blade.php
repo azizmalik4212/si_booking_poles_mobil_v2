@@ -42,8 +42,26 @@
     </div>
     <!-- Page content -->
     <div class="container mt--8 pb-5">
+
       <div class="row justify-content-center">
         <div class="col-lg-5 col-md-7">
+            @if(session()->has('status') && session()->has('message'))
+                @if (session()->get('status') == 'sukses')
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong></strong> {{ session()->get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @else
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Gagal!</strong> {{ session()->get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria- ="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+            @endif
           <div class="card bg-secondary shadow border-0">
 
             <div class="card-body px-lg-5 py-lg-5">
@@ -80,15 +98,14 @@
                     @enderror
                   </div>
                 </div>
-
+                <a data-toggle="modal" data-target="#modalEmail" style="cursor:pointer;"><p style="text-align: right" class="text-primary">Lupa password?</p></a>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-2 w-100">{{ __('LOGIN') }}</button>
+                  <button type="submit" class="btn btn-primary w-100">{{ __('LOGIN') }}</button>
                   <a href="{{ route('registerMenu') }}"> <button type="button" class="btn btn-success my-2 w-100">REGISTER</button></a>
                 </div>
               </form>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -105,6 +122,33 @@
       </div>
     </footer>
   </div>
+
+  <div class="modal fade" id="modalEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Masukkan E-Mail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('validateEmail') }}" method="post" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              <div class="form-group">
+                <label for="exampleInputEmail1">E-Mail</label>
+                <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Masukkan email yang terdaftar pada akun Anda" required>
+              </div>
+              <div style="text-align: right;margin-top:50px;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Lanjut</button>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--   Core   -->
   <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

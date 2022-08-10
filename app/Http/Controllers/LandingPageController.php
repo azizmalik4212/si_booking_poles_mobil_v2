@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendQueueEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class LandingPageController extends Controller
 {
@@ -20,6 +22,18 @@ class LandingPageController extends Controller
         return view('register.register', $data);
     }
 
+    public function resetPasswordAction(Request $request){
+        $dataEdit = $request->except($this->global_exceptKey);
+
+        $action = User::where("id", $request['id_edit'])->update($dataEdit);
+        if ($action)
+            $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
+        else
+            $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+
+        return redirect()->back()->with($response);
+    }
+
     public function addRegister(Request $request){
         $dataPost = $request->input();
         $data = $request->except("_tokens");
@@ -32,6 +46,28 @@ class LandingPageController extends Controller
             $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
 
         return redirect()->back()->with($response);
+    }
+
+    public function validateEmail(Request $request){
+        $check = User::where('email',$request['email'])->count();
+
+        if ($check > 0) {
+            $details['email'] = $request['email'];
+            $emailJob = new SendQueueEmail($details);
+            dispatch($emailJob);
+
+            $response = ['status' => 'sukses', 'message' => 'Link pergantian password telah dikirimkan ke E-mail Anda '.$request['email']];
+        } else {
+            $response = ['status' => 'gagal', 'message' => 'Email yang Anda masukkan tidak terdaftar'];
+        }
+
+        return redirect()->back()->with($response);
+
+    }
+
+    public function resetPassword(Request $request){
+        $data['id_user'] = $request['id'];
+        return view('auth.passwords.reset', $data);
     }
 
 }
