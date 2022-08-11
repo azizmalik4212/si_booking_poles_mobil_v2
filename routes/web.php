@@ -121,11 +121,12 @@ Route::get('/laporan/booking/', [LaporanController::class, 'laporanDataBooking']
 //     dd($test);
 // });
 Route::get('email-test', function(){
-    $details['email'] = 'leopartha019@gmail.com';
+    $details['email'] = 'malikabdulaziz1945@gmail.com';
+    $details['data_parse'] = 'TEST_DATA_PARSE';
     $data = dispatch(new App\Jobs\SendQueueEmail($details));
     dd($data);
 });
 
 Route::get('isi-test', function(){
-    return view('emails.ganti_password');
+    return view('emails.test');
 });

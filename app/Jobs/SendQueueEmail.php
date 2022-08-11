@@ -35,7 +35,7 @@ class SendQueueEmail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SendEmailTest();
+        $email = new SendEmailTest($this->details);
         FacadesMail::to($this->details['email'])->send($email);
     }
 }

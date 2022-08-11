@@ -7,12 +7,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link active">Beranda</a>
+            <a href="/" class="nav-item nav-link {{ (Request::is('/'))  ? 'active' : '' }}">Beranda</a>
             <a href="#Aboutus" class="nav-item nav-link">Tentang</a>
-            <a href="#Service" class="nav-item nav-link">Layanan</a>
+            <a href="#Service" class="nav-item nav-link ">Layanan</a>
             @if (Auth::user())
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Transaksi</a>
+                <a href="#" class="nav-link dropdown-toggle {{ (Request::is('user/list-booking-user') or Request::is('user/pembayaran') or Request::is('user/jadwal-booking'))  ? 'active' : '' }}" data-bs-toggle="dropdown">Transaksi</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="{{ route('getDataListBookingUser') }}" class="dropdown-item">Booking</a>
                     <a href="{{ route('getPembayaranUser') }}" class="dropdown-item">Pembayaran</a>
@@ -23,7 +23,7 @@
             </div>
             <!-- Ne Senah lamen sube login-->
             <div class="nav-item dropdown">
-                <a href="{{ url('/login') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">{{Auth::user()->nama}}</a>
+                <a href="{{ url('/login') }}" class="nav-link dropdown-toggle {{ (Request::is('user/profile') or Request::is('user/ganti-password'))  ? 'active' : '' }}" data-bs-toggle="dropdown">{{Auth::user()->nama}}</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="{{route('getProfileUser')}}" class="dropdown-item">Profil Saya</a>
                     <a href="{{route('getGantiPassword')}}" class="dropdown-item">Ganti Password</a>

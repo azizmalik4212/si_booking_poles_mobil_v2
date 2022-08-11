@@ -37,7 +37,13 @@ class LandingPageController extends Controller
     public function addRegister(Request $request){
         $dataPost = $request->input();
         $data = $request->except("_tokens");
+        $checkUsername = User::where('username',$data['username'])->count();
         //$data['password'] = bcrypt($dataPost['password']);
+
+        if ($checkUsername > 0) {
+            $response = ['status' => 'gagal', 'message' => 'Username yang Anda masukkan telah terdaftar'];
+            return redirect()->back()->with($response);
+        }
 
         $action = User::create($data);
         if ($action)
@@ -49,10 +55,12 @@ class LandingPageController extends Controller
     }
 
     public function validateEmail(Request $request){
-        $check = User::where('email',$request['email'])->count();
+        $check = User::where('email',$request['email']);
 
-        if ($check > 0) {
+        if (@$check->count() > 0) {
             $details['email'] = $request['email'];
+            $details['type_message'] = 'RESET_PASSORD';
+            $details['id_user_parse'] = @$check->first()->id ?? 0;
             $emailJob = new SendQueueEmail($details);
             dispatch($emailJob);
 

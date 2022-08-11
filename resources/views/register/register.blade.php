@@ -53,6 +53,14 @@
                 <h6><i class="fas fa-check"></i><b> Success!</b></h6>
                 Pendaftaran akun berhasil silakan login menggunakan data akun yang telah Anda buat. <b><a href="{{ url('/login') }}"> Login Sekarang! </a></b>
             </div>
+        @elseif(session()->has('status') && session()->get('status') == 'gagal')
+        <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+            </button>
+
+            <span><i class="fas fa-times"></i> &nbsp; {{session()->get('message')}}</span>
+        </div>
         @endif
           <div class="card bg-secondary shadow border-0">
 

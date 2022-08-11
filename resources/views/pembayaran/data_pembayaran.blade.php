@@ -49,6 +49,7 @@
                             <tr>
                                 <th scope="col">#no</th>
                                 <th scope="col">Tgl pembayaran</th>
+                                <th scope="col">Nama</th>
                                 <th scope="col">Bukti</th>
                                 <th scope="col">Booking</th>
                                 <th scope="col">Status</th>
@@ -63,6 +64,7 @@
                             <tr>
                                 <th scope="row">{{$no++}}</th>
                                 <td>{{date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
+                                <td>{{$item->nama}}</td>
                                 <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" class="rounded" width="100px"></a></td>
                                 <td>{{$item->no_booking}} - {{$item->kendaraan}} - {{$item->jenis_layanan}}</td>
                                 <td>

@@ -14,7 +14,7 @@ class SendEmailTest extends Mailable
 
     use Queueable, SerializesModels;
 
-
+    protected $details;
 
     /**
 
@@ -26,11 +26,11 @@ class SendEmailTest extends Mailable
 
      */
 
-    public function __construct()
+    public function __construct($details)
 
     {
 
-
+        $this->details = $details;
 
     }
 
@@ -49,8 +49,10 @@ class SendEmailTest extends Mailable
     public function build()
 
     {
-
-        return $this->view('emails.ganti_password');
+        if ($this->details['type_message'] == 'PAID')
+            return $this->view('emails.test',$this->details);
+        else if ($this->details['type_message'] == 'RESET_PASSORD')
+            return $this->view('emails.ganti_password',$this->details);
 
     }
 

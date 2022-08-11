@@ -50,7 +50,7 @@
                             <h3 class="mb-0">{{$tittle}}</h3>
                         </div>
                         <div class="col text-right">
-                            <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalAdd"><i class="fas fa-plus"></i></button>
+                            {{-- <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalAdd"><i class="fas fa-plus"></i></button> --}}
                         </div>
                     </div>
                 </div>

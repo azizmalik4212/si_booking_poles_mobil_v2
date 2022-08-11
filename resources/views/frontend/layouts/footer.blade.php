@@ -1,3 +1,9 @@
+<style>
+    .footer-link {
+        color: #fff !important;
+        text-decoration: none;
+    }
+</style>
 <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-5">
         <div class="row g-5">
@@ -7,9 +13,9 @@
                 <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+6289 54136 99890</p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i>smdetailing@gmail.com</p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-instagram"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href="https://web.facebook.com/awan.anker.16"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-youtube"></i></a>
+                    <a class="footer-link btn btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="footer-link btn btn-outline-light btn-social" target="_blank" href="https://web.facebook.com/awan.anker.16"><i class="fab fa-facebook-f"></i></a>
+                    <a class="footer-link btn btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -21,11 +27,11 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Layanan</h4>
-                <a class="btn btn-link" href="#">Cuci Kendaraan</a>
-                <a class="btn btn-link" href="#">Perawatan Kaca</a>
-                <a class="btn btn-link" href="#">Perawatan Interior</a>
-                <a class="btn btn-link" href="#">Perawatan Exterior </a>
-                <a class="btn btn-link" href="#">Pembersihan Mesin</a>
+                <a class="footer-link btn btn-link" href="#">Cuci Kendaraan</a>
+                <a class="footer-link btn btn-link" href="#">Perawatan Kaca</a>
+                <a class="footer-link btn btn-link" href="#">Perawatan Interior</a>
+                <a class="footer-link btn btn-link" href="#">Perawatan Exterior </a>
+                <a class="footer-link btn btn-link" href="#">Pembersihan Mesin</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Pendaftaran</h4>
@@ -48,10 +54,10 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
-                        <a href="#">Home</a>
-                        <a href="#">Cookies</a>
-                        <a href="#">Help</a>
-                        <a href="#">FQAs</a>
+                        <a class="footer-link" href="#">Home</a>
+                        <a class="footer-link" href="#">Cookies</a>
+                        <a class="footer-link" href="#">Help</a>
+                        <a class="footer-link" href="#">FQAs</a>
                     </div>
                 </div>
             </div>

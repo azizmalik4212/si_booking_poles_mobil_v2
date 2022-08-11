@@ -47,7 +47,7 @@
                                         <p style="color:#455056; font-size:15px;line-height:24px; margin:0;">
                                             Kami tidak bisa begitu saja mengirimkan kata sandi lama Anda. Tautan unik untuk mengatur ulang kata sandi Anda telah dibuat untuk Anda. Untuk mengatur ulang kata sandi Anda, klik tautan berikut dan ikuti petunjuknya
                                         </p>
-                                        <a href="http://127.0.0.1:8000/reset-password?id=9"
+                                        <a href="http://127.0.0.1:8000/reset-password?id={{@$id_user_parse}}"
                                             style="background:#20e277;text-decoration:none !important; font-weight:500; margin-top:35px; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:50px;">Ganti
                                             Password</a>
                                     </td>

@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Jobs\SendQueueEmail;
 use App\Models\Booking;
 use App\Models\Pembayaran;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,7 @@ class pembayaranController extends Controller
         $data['tittle']='Data pembayaran';
         $data['dataBookingEdit'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
         $data['dataBookingAdd'] = DB::select("select `tb_booking`.*, `users`.`nama`, `tb_layanan`.`jenis_layanan` from `tb_booking` inner join `users` on `users`.`id` = `tb_booking`.`id_user` inner join `tb_layanan` on `tb_booking`.`id_layanan` = `tb_layanan`.`id` WHERE tb_booking.id NOT IN (SELECT id_booking FROM tb_pembayaran)");
-        $data['dataSql'] = Pembayaran::select("tb_pembayaran.*", "tb_booking.no_booking","tb_booking.kendaraan","tb_layanan.jenis_layanan")->join("tb_booking", "tb_booking.id","tb_pembayaran.id_booking")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
+        $data['dataSql'] = Pembayaran::select("tb_pembayaran.*", "tb_booking.no_booking","tb_booking.kendaraan","tb_layanan.jenis_layanan","users.nama")->join("tb_booking", "tb_booking.id","tb_pembayaran.id_booking")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->join("users","users.id","tb_booking.id_user")->get();
         return view('pembayaran.data_pembayaran', $data);
     }
 
@@ -45,6 +46,19 @@ class pembayaranController extends Controller
 
         if (@$dataEdit['id_booking'] != null) {
             if ($dataEdit['status'] == 'ACCEPT') {
+
+                $dataBook = Booking::select("tb_booking.*","users.nama","users.email", "tb_layanan.jenis_layanan","tb_layanan.harga")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.id',$dataEdit['id_booking'])->first();
+                $details['type_message'] = 'PAID';
+                $details['email'] = @$dataBook->email ?? 0;
+                $details['nama'] = @$dataBook->nama ?? 0;
+                $details['no_booking'] = @$dataBook->no_booking ?? 0;
+                $details['layanan'] = @$dataBook->jenis_layanan ?? 0;
+                $details['kendaraan'] = @$dataBook->kendaraan ?? 0;
+                $details['harga'] = @$dataBook->harga ?? 0;
+                $details['tgl_booking'] = @date('d-m-Y',strtotime(@$dataBook->tgl_booking));
+                $details['status'] = @$dataBook->status ?? 0;
+                $emailJob = new SendQueueEmail($details);
+                dispatch($emailJob);
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'PAID']);
             } else {
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'REJECT']);
