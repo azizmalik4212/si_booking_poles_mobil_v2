@@ -6,7 +6,7 @@
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
@@ -24,8 +24,8 @@
         <div class="row gx-5">
             <div class="col-lg-6 py-5">
                 <div class="py-5">
-                    <h1 class="text-white mb-4">Certified and Award Winning Car Repair Service Provider</h1>
-                    <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                    <h1 class="text-white mb-4">Booking Jasa Auto Detailing</h1>
+                    <p class="text-white mb-0">SM Detailing adalah layanan jasa salon mobil panggilan yang sengaja hadir untuk memenuhi kebutuhan Anda terkait kenyamanan dan keindahan mobil. Jadi Anda yang menentukan kapan mengosongkan waktu untuk melakukan perawatan mobil, sangat fleksibel bukan? Kapanpun Anda memiliki waktu luang, kami akan hadir untuk memberikan servis, dan tentu saja ini tidak akan mengganggu waktu produktif Anda.</p>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -48,7 +48,7 @@
                     @endif
                 @endif
                 <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn" data-wow-delay="0.6s">
-                    <h1 class="text-white mb-4">Book For A Service</h1>
+                    <h1 class="text-white mb-4">Booking Jasa SM Detailing</h1>
                     <form action="{{ route('addDataBooking') }}" method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" name="id_user" class="form-control border-0" style="height: 55px;" value="{{@$dataUser->id}}" readonly>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="date" name="tgl_booking" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
+                                    <input type="date" name="tgl_booking" class="form-control border-0" placeholder="" style="height: 55px;" required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">

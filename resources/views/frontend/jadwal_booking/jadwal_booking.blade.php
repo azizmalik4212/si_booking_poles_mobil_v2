@@ -14,7 +14,7 @@
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">{{$tittle}}</h1>
@@ -88,7 +88,7 @@
         headerToolbar: {
           left: 'prev,next',
           center: 'title',
-          right: 'dayGridMonth,listMonth'
+          right: 'dayGridMonth'
         },
         initialDate: nowDate,
         navLinks: true, // can click day/week names to navigate views

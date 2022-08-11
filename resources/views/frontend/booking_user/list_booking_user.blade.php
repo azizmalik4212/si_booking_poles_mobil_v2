@@ -1,12 +1,12 @@
 @extends('frontend.layouts.app')
 @section('content')
- <!-- Service Start -->
+<!-- Service Start -->
 
 <!-- Service End -->
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">List Booking</h1>
@@ -59,9 +59,9 @@
                             <table class="table align-items-center table-flush" id="table_id">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">#no</th>
-                                        <th scope="col">No booking</th>
-                                        <th scope="col">Tgl booking</th>
+                                        <th scope="col">#NO</th>
+                                        <th scope="col">No Booking</th>
+                                        <th scope="col">Tanggal booking</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Kendaraan</th>
                                         <th scope="col">Alamat</th>
@@ -111,7 +111,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -119,53 +118,53 @@
 
 <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit booking</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form action="{{ route('updateDataBooking') }}" method="post" enctype="multipart/form-data">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Booking</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form form action="{{ route('updateDataBooking') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
-              <input type="hidden" id="id_edit" name="id_edit">
-              <div class="form-group" id="row_no_booking">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">No booking</label>
-                <input type="text" name="no_booking" class="form-control" id="no_booking_edit" placeholder="" required readonly>
-             </div>
-              <div class="form-group" id="row_tgl_booking">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tgl booking</label>
-                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" aria-describedby="emailHelp" placeholder="" required>
-              </div>
-              <div class="form-group" id="row_kendaraan">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Kendaraan</label>
-                <input type="text" name="kendaraan" class="form-control" id="kendaraan_edit" aria-describedby="emailHelp" placeholder="Masukkan data kendaraan" required>
-              </div>
-              <div class="form-group" id="row_deskripsi">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Deskripsi</label>
-                <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
-              </div>
-              <div class="form-group" id="row_alamat">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Alamat</label>
-                <textarea class="form-control" name="alamat" id="alamat_edit"  placeholder="Masukkan alamat"></textarea>
-              </div>
-              <div class="form-group" id="row_id_layanan">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Data layanan</label>
-                <select class="form-control" name="id_layanan" id="id_layanan_edit" required style="background-color: #fff">
-                    <option value="">-Pilih-</option>
-                    @foreach ($dataLayanan as $row)
-                    <option value="{{$row->id}}">{{$row->jenis_layanan}}</option>
-                    @endforeach
-                </select>
-              </div>
-              <div style="text-align: right;margin-top:50px;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success">Simpan</button>
-              </div>
-            </form>
+                <input type="hidden" id="id_edit" name="id_edit">
+                <div class="form-group" id="row_no_booking">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">No Booking</label>
+                    <input type="text" name="no_booking" class="form-control" id="no_booking_edit" placeholder="" required readonly>
+                </div>
+                <div class="form-group" id="row_tgl_booking">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tanggal Booking</label>
+                    <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" aria-describedby="emailHelp" placeholder="" required>
+                </div>
+                <div class="form-group" id="row_kendaraan">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Kendaraan</label>
+                    <input type="text" name="kendaraan" class="form-control" id="kendaraan_edit" aria-describedby="emailHelp" placeholder="Masukkan data kendaraan" required>
+                </div>
+                <div class="form-group" id="row_deskripsi">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Deskripsi</label>
+                    <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
+                </div>
+                <div class="form-group" id="row_alamat">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Alamat</label>
+                    <textarea class="form-control" name="alamat" id="alamat_edit"  placeholder="Masukkan alamat"></textarea>
+                </div>
+                <div class="form-group" id="row_id_layanan">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Data layanan</label>
+                    <select class="form-control" name="id_layanan" id="id_layanan_edit" required style="background-color: #fff">
+                        <option value="">-Pilih-</option>
+                        @foreach ($dataLayanan as $row)
+                        <option value="{{$row->id}}">{{$row->jenis_layanan}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div style="text-align: right;margin-top:50px;">
+                        <button button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+                </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
   {{-- <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -219,7 +218,6 @@
     </div>
   </div> --}}
 
-
   <div class="modal fade" id="modalEdit2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -232,11 +230,11 @@
                 {{ csrf_field() }}
               <input type="hidden" id="id_edit2" name="id_edit">
               <div class="form-group" id="row_tgl_booking">
-                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tgl booking</label>
+                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tanggal Booking</label>
                 <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit2" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div style="text-align: right;margin-top:50px;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                 <button type="submit" class="btn btn-success">Simpan</button>
               </div>
             </form>
@@ -306,7 +304,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit booking</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Hapus Booking</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

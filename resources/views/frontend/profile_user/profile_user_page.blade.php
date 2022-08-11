@@ -7,7 +7,7 @@
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Profil</h1>
@@ -74,8 +74,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="hp" name="hp" placeholder="No handPhone Anda" value="{{$dataUser->hp}}">
-                                    <label for="name">No HandPhone</label>
+                                    <input type="text" class="form-control" id="hp" name="hp" placeholder="No Handphone Anda" value="{{$dataUser->hp}}">
+                                    <label for="name">No Handphone</label>
                                 </div>
                             </div>
                             <div class="col-md-6">

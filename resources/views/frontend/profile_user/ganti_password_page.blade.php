@@ -7,7 +7,7 @@
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">{{$tittle}}</h1>
@@ -64,20 +64,20 @@
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="password_lama" placeholder="Password lama"  required>
-                                        <label for="name">Password lama</label>
+                                        <input type="password" class="form-control" id="password_lama" placeholder="Password Lama"  required>
+                                        <label for="name">Password Lama</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="password_baru" name="password"  placeholder="Password baru" required>
-                                        <label for="email">Password baru</label>
+                                        <input type="password" class="form-control" id="password_baru" name="password"  placeholder="Password Baru" required>
+                                        <label for="email">Password Baru</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control" id="konfirm_password" placeholder="Konfirmasi password baru" required>
-                                        <label for="name">Konfirmasi password baru</label>
+                                        <input type="password" class="form-control" id="konfirm_password" placeholder="Konfirmasi Password Baru" required>
+                                        <label for="name">Konfirmasi Password Baru</label>
                                     </div>
                                 </div>
 

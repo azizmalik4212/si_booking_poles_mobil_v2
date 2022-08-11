@@ -173,8 +173,8 @@
 <!-- Fact Start -->
 <div class="container-fluid fact bg-dark my-5 py-5">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+        <div class="row g-2">
+            {{-- <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                 <i class="fa fa-check fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">1</h2>
                 <p class="text-white mb-0">Fokus Pengerjaan Harian</p>
@@ -183,8 +183,8 @@
                 <i class="fa fa-users-cog fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">2</h2>
                 <p class="text-white mb-0">Pekerja Berpengalaman</p>
-            </div>
-            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+            </div> --}}
+            {{-- <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
                 <i class="fa fa-users fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">50</h2>
                 <p class="text-white mb-0">Klien yang Puas</p>
@@ -193,7 +193,7 @@
                 <i class="fa fa-car fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">50</h2>
                 <p  id="Service" class="text-white mb-0">Projek Selesai</p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

@@ -28,7 +28,7 @@
         <div class="header-body text-center mb-7">
           <div class="row justify-content-center">
             <div class="col-lg-5 col-md-6">
-              <h1 class="text-white">Silakan input password baru Anda </h1>
+              <h1 class="text-white">Silakan Masukan Password Baru Anda </h1>
               <p class="text-lead text-light">SM Detailing</p>
             </div>
           </div>
@@ -48,7 +48,7 @@
             @if(session()->has('status') && session()->has('message'))
                 @if (session()->get('status') == 'sukses')
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong></strong> Password berhasil direset silakan masuk ke halaman <a href="/logged-in">login</a>
+                    <strong></strong> Password berhasil dirubah silakan masuk ke halaman <a href="/logged-in">login</a>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -84,7 +84,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input id="konfirm_password" type="password" class="form-control" required placeholder="Konfirmasi password">
+                    <input id="konfirm_password" type="password" class="form-control" required placeholder="Konfirmasi Password">
                   </div>
                 </div>
                 <div class="text-center">

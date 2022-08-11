@@ -1,13 +1,13 @@
 @extends('frontend.layouts.app')
 @section('content')
 
- <!-- Service Start -->
+<!-- Service Start -->
 
 <!-- Service End -->
 
 
 <!-- Booking Start -->
-<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/carousel-bg-1.jpg')}});">
+<div class="container-fluid page-header mb-5 p-0" style="background-image: url({{asset('assets_frontend/img/background_prime_1.jpg')}});">
     <div class="container-fluid page-header-inner py-5">
         <div class="container text-center">
             <h1 class="display-3 text-white mb-3 animated slideInDown">Pembayaran</h1>
@@ -42,7 +42,6 @@
                     </div>
                     @endif
                 @endif
-
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -50,7 +49,6 @@
                                 <h3 class="mb-0"></h3>
                             </div>
                             <div class="col text-right">
-
                             </div>
                         </div>
                     </div>
@@ -60,12 +58,12 @@
                             <table class="table align-items-center table-flush" id="table_id">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">#no</th>
-                                        <th scope="col">No booking</th>
-                                        <th scope="col">Tgl booking</th>
+                                        <th scope="col">#NO</th>
+                                        <th scope="col">No Booking</th>
+                                        <th scope="col">Tanggal Booking</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Kendaraan</th>
-                                        <th scope="col">Tgl pembayaran</th>
+                                        <th scope="col">Tanggan Pembayaran</th>
                                         <th scope="col">Bukti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col"><center>Aksi</center></th>
@@ -103,7 +101,6 @@
                                                 @if (in_array($item->status,['WAITING','ON_PROGRESS','COMPLETED']))
                                                 <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}','{{$item->harga}}')">Upload Bukti Bayar</button>
                                                 @endif
-
                                             </center>
                                         </td>
                                     </tr>
@@ -113,7 +110,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -156,7 +152,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Unggah Bukti Pembayaran</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -165,17 +161,16 @@
                 <input type="hidden" name="id_booking" id="id_booking">
                 <input type="hidden" name="tgl_pembayaran" id="tgl_pembayaran" value="{{date('Y-m-d')}}">
                 <div class="form-group">
-                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Total pembayaran</label>
+                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Total Pembayaran</label>
                     <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
                 </div>
                 <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
                     <input type="file" name="bukti" class="form-control" style="background-color: #fff" id="bukti"required>
                 </div>
-
                 <div style="text-align: right;margin-top:50px;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Batal</button>
-                <button type="submit" class="btn btn-success">Upload</button>
+                <button type="submit" class="btn btn-success">Unggah</button>
                 </div>
             </form>
         </div>
