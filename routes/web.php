@@ -1,13 +1,9 @@
 <?php
 
-use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\bookingController;
-use App\Http\Controllers\CutiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KegiatanController;
-use App\Http\Controllers\KegiatanPegawaiController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\LayananController;
@@ -46,7 +42,8 @@ Route::post('/user/add', [UsersController::class, 'addUser'])->name('addDataUser
 Route::post('/user/edit', [UsersController::class, 'updateUser'])->name('updateDataUser');
 Route::post('/user/delete', [UsersController::class, 'deleteUser'])->name('deleteDataUser');
 Route::post('/user/update-password', [UsersController::class, 'updatePassword'])->name('updatePassword');
-//user menu
+
+//User menu
 Route::get('/user/profile/', [UsersController::class, 'profileUser'])->name('getProfileUser');
 Route::get('/user/ganti-password/', [UsersController::class, 'gantiPassword'])->name('getGantiPassword');
 Route::get('/user/booking/', [UsersController::class, 'orderPage'])->name('getBookingUser');
@@ -76,34 +73,6 @@ Route::post('/pembayaran/edit', [pembayaranController::class, 'update'])->name('
 Route::post('/pembayaran/delete', [pembayaranController::class, 'delete'])->name('deleteDataPembayaran');
 Route::post('/pembayaran/upload-bukti', [pembayaranController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran');
 
-//Kegiatan Controller
-Route::get('/kegiatan/data/', [KegiatanController::class, 'index'])->name('getDataKegiatan');
-Route::post('/kegiatan/add', [KegiatanController::class, 'add'])->name('addDataKegiatan');
-Route::post('/kegiatan/edit', [KegiatanController::class, 'update'])->name('updateDataKegiatan');
-Route::post('/kegiatan/delete', [KegiatanController::class, 'delete'])->name('deleteDataKegiatan');
-
-//Kegiatan Pegawai Controller
-Route::get('/report-kegiatan/data/', [KegiatanPegawaiController::class, 'index'])->name('getDataKegiatanPegawai');
-Route::post('/report-kegiatan/add', [KegiatanPegawaiController::class, 'add'])->name('addDataKegiatanPeagwai');
-Route::post('/report-kegiatan/edit', [KegiatanPegawaiController::class, 'update'])->name('updateDataKegiatanPeagwai');
-Route::post('/report-kegiatan/delete', [KegiatanPegawaiController::class, 'delete'])->name('deleteDataKegiatanPeagwai');
-Route::post('/report-kegiatan/konfirm', [KegiatanPegawaiController::class, 'konfirm'])->name('konfirmDataKegiatanPeagwai');
-
-//Absensi Controller
-Route::get('/absensi/data/', [AbsensiController::class, 'index'])->name('getDataAbsensi');
-Route::post('/absensi/add', [AbsensiController::class, 'add'])->name('addDataAbsensi');
-Route::post('/absensi/edit', [AbsensiController::class, 'update'])->name('updateDataAbsensi');
-Route::post('/absensi/delete', [AbsensiController::class, 'delete'])->name('deleteDataAbsensi');
-Route::post('/absensi/konfirm', [AbsensiController::class, 'konfirm'])->name('konfirmDataAbsensi');
-
-//Cuti Controller
-Route::get('/cuti/data/', [CutiController::class, 'index'])->name('getDataCuti');
-Route::post('/cuti/add', [CutiController::class, 'add'])->name('addDataCuti');
-Route::post('/cuti/edit', [CutiController::class, 'update'])->name('updateDataCuti');
-Route::post('/cuti/delete', [CutiController::class, 'delete'])->name('deleteDataCuti');
-Route::post('/cuti/konfirm', [CutiController::class, 'konfirm'])->name('konfirmDataCuti');
-Route::get('/cuti/surat/{id}', [PdfController::class, 'pdfSuratCuti'])->name('pdfSuratCuti');
-
 //laporan controller
 Route::get('/laporan/user/', [LaporanController::class, 'laporanDataUser'])->name('getLaporanDataUser');
 Route::get('/laporan/kegiatan-pegawai/', [LaporanController::class, 'laporanDataKegiatanPegawai'])->name('geLaporanDataKegiatanPegawai');
@@ -111,22 +80,3 @@ Route::get('/laporan/kegiatan/', [LaporanController::class, 'laporanDataKegiatan
 Route::get('/laporan/absensi/', [LaporanController::class, 'laporanDataAbsensi'])->name('getLaporanDataAbsensi');
 Route::get('/laporan/cuti/', [LaporanController::class, 'laporanDataCuti'])->name('getLaporanDataCuti');
 Route::get('/laporan/booking/', [LaporanController::class, 'laporanDataBooking'])->name('getLaporanDataBooking');
-
-// Route::get('email-test', function(){
-
-//     $details['email'] = 'malikabdulaziz1945@gmail.com';
-
-//     $test = dispatch(new App\Jobs\SendEmailJob($details));
-
-//     dd($test);
-// });
-Route::get('email-test', function(){
-    $details['email'] = 'malikabdulaziz1945@gmail.com';
-    $details['data_parse'] = 'TEST_DATA_PARSE';
-    $data = dispatch(new App\Jobs\SendQueueEmail($details));
-    dd($data);
-});
-
-Route::get('isi-test', function(){
-    return view('emails.test');
-});

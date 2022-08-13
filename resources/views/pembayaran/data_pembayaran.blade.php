@@ -50,6 +50,7 @@
                                 <th scope="col">#no</th>
                                 <th scope="col">Tgl pembayaran</th>
                                 <th scope="col">Nama</th>
+                                <th scope="col">Rek transfer</th>
                                 <th scope="col">Bukti</th>
                                 <th scope="col">Booking</th>
                                 <th scope="col">Status</th>
@@ -64,6 +65,7 @@
                             <tr>
                                 <th scope="row">{{$no++}}</th>
                                 <td>{{date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
+                                <td>{{$item->rek_transfer}}</td>
                                 <td>{{$item->nama}}</td>
                                 <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" class="rounded" width="100px"></a></td>
                                 <td>{{$item->no_booking}} - {{$item->kendaraan}} - {{$item->jenis_layanan}}</td>
@@ -140,6 +142,15 @@
                 <input type="date" name="tgl_pembayaran" class="form-control" id="tgl_pembayaran" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Rek transfer</label>
+                <select class="form-control" name="rek_transfer" required style="background-color: #fff;">
+                    <option value="">-Pilih-</option>
+                    <option value="BCA - 745523773478">BCA - 745523773478</option>
+                    <option value="BRI - 100092329829928">BRI - 100092329829928</option>
+                    <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">Bukti</label>
                 <input type="file" name="bukti" class="form-control" id="bukti"required>
               </div>
@@ -181,6 +192,15 @@
                 <input type="date" name="tgl_pembayaran" class="form-control" id="tgl_pembayaran_edit" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Rek transfer</label>
+                <select class="form-control" name="rek_transfer" id="rek_transfer_edit" required style="background-color: #fff;">
+                    <option value="">-Pilih-</option>
+                    <option value="BCA - 745523773478">BCA - 745523773478</option>
+                    <option value="BRI - 100092329829928">BRI - 100092329829928</option>
+                    <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">Bukti</label>
                 <input type="file" name="bukti" class="form-control" id="" >
               </div>
@@ -197,7 +217,7 @@
                 <label for="exampleInputEmail1">Status</label>
                 <select class="form-control" name="status" id="status_edit" required>
                     <option value="">-Pilih-</option>
-                    <option value="WAITING">menunggu Konfirmasi</option>
+                    <option value="WAITING">Menunggu Konfirmasi</option>
                     <option value="ACCEPT">Diterima</option>
                     <option value="REJECT">Ditolak</option>
                 </select>

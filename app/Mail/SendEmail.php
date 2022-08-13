@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 
 
 
-class SendEmailTest extends Mailable
+class SendEmail extends Mailable
 
 {
 
@@ -50,7 +50,7 @@ class SendEmailTest extends Mailable
 
     {
         if ($this->details['type_message'] == 'PAID')
-            return $this->view('emails.test',$this->details);
+            return $this->view('emails.konfirm_pembayaran',$this->details);
         else if ($this->details['type_message'] == 'RESET_PASSORD')
             return $this->view('emails.ganti_password',$this->details);
 

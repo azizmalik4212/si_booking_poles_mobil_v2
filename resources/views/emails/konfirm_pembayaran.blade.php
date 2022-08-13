@@ -77,7 +77,7 @@
                                                                 <p>You have received a new booking for your property with Lavanda,
                                                                     details of which follow below. As always, we are here
                                                                     to help should you have any questions.</p>
-                                                                <ul style="text-align: left">
+                                                                <ul style="text-align:left">
                                                                     <li>No Booking: <strong>{{@$no_booking}}</strong></li>
                                                                     <li>Tgl Booking: <strong>{{@$tgl_booking}}</strong></li>
                                                                     <li>Nama: <strong>{{@$nama}}</strong></li>
@@ -85,7 +85,7 @@
                                                                     <li>Kendaraan: <strong>{{@$kendaraan}}</strong></li>
                                                                     <li>Total pembayaran: <strong>{{@$harga}}</strong></li>
                                                                     <li>Status: <strong>Terkonfirmasi</strong></li>
-<!--                                                                     <li>Your earning: <strong>£350.00</strong></li> -->
+<!--                                                                <li>Your earning: <strong>£350.00</strong></li> -->
                                                                 </ul>
                                                                 <p>Kind regards</p>
                                                                 <p>Lavanda Bookings Team</p>

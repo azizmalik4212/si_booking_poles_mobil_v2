@@ -225,6 +225,11 @@
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
                         <i class="fa fa-oil-can fa-2x me-3"></i>
                         <h4 class="m-0">Pembersihan Mesin</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-5" type="button" style="margin-top: 26px">
+                        <i class="fa fa-oil-can fa-2x me-3"></i>
+                        <h4 class="m-0">test</h4>
+                    </button>
                 </div>
             </div>
             <div class="col-lg-8">
@@ -284,6 +289,24 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="tab-pane-4">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-4.jpg') }}"
+                                        style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Pembersihan Mesin Mobil</h3>
+                                <p class="mb-4">Meski selalu tertutup, ternyata ruang mesin pada mobil juga bisa terpapar oleh debu dan kotoran. Oleh sebab itu, anda pelu membersihkan mesin mobil yang tepat agar ruang dapur pacu tetap terjaga performanya.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Debu & Kotoran</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Mesin</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Radiator</p>
+                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-5">
                         <div class="row g-4">
                             <div class="col-md-6" style="min-height: 350px;">
                                 <div class="position-relative h-100">

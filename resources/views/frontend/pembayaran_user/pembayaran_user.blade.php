@@ -63,7 +63,8 @@
                                         <th scope="col">Tanggal Booking</th>
                                         <th scope="col">Layanan</th>
                                         <th scope="col">Kendaraan</th>
-                                        <th scope="col">Tanggan Pembayaran</th>
+                                        <th scope="col">Tanggal Pembayaran</th>
+                                        <th scope="col">Rek Transfer</th>
                                         <th scope="col">Bukti</th>
                                         <th scope="col">Status</th>
                                         <th scope="col"><center>Aksi</center></th>
@@ -80,7 +81,8 @@
                                         <td>{{date('d-m-Y',strtotime($item->tgl_booking))}}</td>
                                         <td>{{$item->jenis_layanan}}</td>
                                         <td>{{$item->kendaraan}}</td>
-                                        <td>{{ $item->tgl_pembayaran==null ? ' - ' : date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
+                                        <td>{{$item->tgl_pembayaran==null ? ' - ' : date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
+                                        <td>{{$item->rek_transfer}}</td>
                                         <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" onerror="this.onerror=null; this.src='{{ asset('upload/bukti_bayar/no_image.png') }}'" class="rounded" width="100px"></a></td>
                                         <td>
                                             @if($item->status=='WAITING')
@@ -115,39 +117,6 @@
     </div>
 </div>
 
-{{-- <div class="modal fade" id="modalUploadBukti" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Upload bukti pembayaran</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form action="{{ route('uploadBuktiPembayaran') }}" method="post" enctype="multipart/form-data">
-                {{ csrf_field() }}
-                <input type="hidden" name="id_booking" id="id_booking">
-                <input type="hidden" name="tgl_pembayaran" id="tgl_pembayaran" value="{{date('Y-m-d')}}">
-                <div class="form-group">
-                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Total pembayaran</label>
-                    <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
-                </div>
-                <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
-                    <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
-                    <input type="file" name="bukti" class="form-control" style="background-color: #fff" id="bukti"required>
-                </div>
-
-                <div style="text-align: right;margin-top:50px;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-success">Upload</button>
-                </div>
-            </form>
-        </div>
-        </div>
-    </div>
-</div> --}}
-
 <div class="modal fade" id="modalUploadBukti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -163,6 +132,15 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Total Pembayaran</label>
                     <input type="text"  class="form-control" value="" id="total_bayar"  readonly>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1" style="margin-top: 20px;margin-bottom: 10px">Rekening Transfer</label>
+                    <select class="form-control" name="rek_transfer" required style="background-color: #fff;">
+                        <option value="">-Pilih-</option>
+                        <option value="BCA - 745523773478">BCA - 745523773478</option>
+                        <option value="BRI - 100092329829928">BRI - 100092329829928</option>
+                        <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                    </select>
                 </div>
                 <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>

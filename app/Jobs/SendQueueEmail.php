@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Mail\SendEmailTest;
+use App\Mail\SendEmail;
 use Illuminate\Support\Facades\Mail as FacadesMail;
 
 class SendQueueEmail implements ShouldQueue
@@ -35,7 +35,7 @@ class SendQueueEmail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SendEmailTest($this->details);
+        $email = new SendEmail($this->details);
         FacadesMail::to($this->details['email'])->send($email);
     }
 }

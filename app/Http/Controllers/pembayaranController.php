@@ -100,7 +100,7 @@ class pembayaranController extends Controller
 
         $cekData = Pembayaran::where('id_booking',$data['id_booking'])->count();
         if ($cekData > 0) {
-            $action = Pembayaran::where("id_booking", $request['id_booking'])->update(['bukti' =>  $data['bukti']]);
+            $action = Pembayaran::where("id_booking", $request['id_booking'])->update(['bukti' =>  $data['bukti'], 'rek_transfer' => $data['rek_transfer']]);
         } else {
             $action = Pembayaran::create($data);
         }
