@@ -27,8 +27,8 @@
                                     <tbody>
                                         <tr>
                                             <td width="570" style="text-align: center">
-                                                <a href="https://lavanda.co.uk" target="_blank">
-                                                    <img alt="Lavanda Logo" height="50" src="https://lavanda.co.uk/wp-content/themes/lavanda-theme/assets/img/logo-black.png"
+                                                <a href="#" target="_blank">
+                                                    <img alt="SM Logo" height="150" src="https://lh3.googleusercontent.com/jVeSBStKX6Y1rBHjgjqFDjW4zlo416MkT6X0p2zIsCCnvY_MiLBksyaRh715HW4U_Wz52C59Ya3TVH-v=s239-c"
                                                         style="border:0"></a>
                                             </td>
                                         </tr>
@@ -58,7 +58,7 @@
                                                     <tbody>
                                                         <tr>
                                                             <td align="center">
-                                                                <h2 style="margin:0!important;font-family:'Open Sans',helvetica,arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important">New Booking Confirmation</h2>
+                                                                <h2 style="margin:0!important;font-family:'Open Sans',helvetica,arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important">Konfirmasi Booking Baru</h2>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -74,12 +74,10 @@
                                                     <tbody>
                                                         <tr>
                                                             <td align="left" style="font-family:'Open Sans',helvetica,arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:100!important;color:#7e8890!important">
-                                                                <p>You have received a new booking for your property with Lavanda,
-                                                                    details of which follow below. As always, we are here
-                                                                    to help should you have any questions.</p>
+                                                                <p>Anda telah menerima pemesanan baru untuk jasa detailing Anda dengan SM Detailing, detailnya mengikuti di bawah ini. Seperti biasa, kami di sini untuk membantu jika Anda memiliki pertanyaan.</p>
                                                                 <ul style="text-align: left">
                                                                     <li>No Booking: <strong>{{@$no_booking}}</strong></li>
-                                                                    <li>Tgl Booking: <strong>{{@$tgl_booking}}</strong></li>
+                                                                    <li>Tanggal Booking: <strong>{{@$tgl_booking}}</strong></li>
                                                                     <li>Nama: <strong>{{@$nama}}</strong></li>
                                                                     <li>Layanan: <strong>{{@$layanan}}</strong></li>
                                                                     <li>Kendaraan: <strong>{{@$kendaraan}}</strong></li>
@@ -87,8 +85,8 @@
                                                                     <li>Status: <strong>Terkonfirmasi</strong></li>
 <!--                                                                     <li>Your earning: <strong>£350.00</strong></li> -->
                                                                 </ul>
-                                                                <p>Kind regards</p>
-                                                                <p>Lavanda Bookings Team</p>
+                                                                <p>Terima Kasih,</p>
+                                                                <p>SM Detailing</p>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -141,7 +139,7 @@
                                         </tr>
                                         <tr>
                                             <td align="center" style="font-family:'Open Sans',sans-serif!important;font-weight:400!important;color:#7e8890!important;font-size:12px!important;text-transform:uppercase!important;letter-spacing:.045em!important"
-                                                valign="top">Lettings &#9679; Luxury Hospitality &#9679; Management</td>
+                                                valign="top">JASA &#9679; SM DETAILING &#9679; DETAILING</td>
                             </tr>
                             <tr style="padding:0;margin:0;font-size:0;line-height:0">
                                 <td>&nbsp;</td>
@@ -156,7 +154,7 @@
             <tr>
                 <td align="center" valign="top">
                     <p style="margin-bottom:1em;font-family:Open Sans,sans-serif!important;padding:0!important;margin:0!important;color:#7e8890!important;font-size:12px!important;font-weight:300!important">
-                        <span>Lavanda Ventures Ltd. The Record Hall, 16-16a Baldwin's Gardens, London EC1N 7RJ</span></p>
+                        <span>SM Detailing. Jln. Merta Agung, Gg. Sawahku Agung no.25B, Kerobokan Kelod</span></p>
                 </td>
             </tr>
                         <tr>

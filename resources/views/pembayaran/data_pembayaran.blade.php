@@ -197,7 +197,7 @@
                 <label for="exampleInputEmail1">Status</label>
                 <select class="form-control" name="status" id="status_edit" required>
                     <option value="">-Pilih-</option>
-                    <option value="WAITING">menunggu Konfirmasi</option>
+                    <option value="WAITING">Menunggu Konfirmasi</option>
                     <option value="ACCEPT">Diterima</option>
                     <option value="REJECT">Ditolak</option>
                 </select>
