@@ -34,12 +34,12 @@ class bookingController extends Controller
     }
 
     public function listBooking(){
-        $data['tittle']='Data list booking';
+        $data['tittle']='Data List Booking';
 
         $data['dataBooking'] = DB::select("SELECT CONCAT(no_booking,' - ',nama) as title, tgl_booking as start,tgl_booking as end
         FROM tb_booking
         INNER JOIN users ON tb_booking.id_user = users.id
-        INNER JOIN tb_layanan ON tb_booking.id_layanan = tb_layanan.id WHERE status != 'REJECT'");
+        WHERE status != 'REJECT'");
         return view('booking.data_list_booking', $data);
     }
 

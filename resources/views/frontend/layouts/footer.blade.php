@@ -49,15 +49,14 @@
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     &copy; <a class="border-bottom" href="#">SM Detailing</a>, All Right Reserved.
                     <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                    Designed By <a class="border-bottom" href="">A&L</a>
+                    Designed By <a class="border-bottom" href="">Leo Partha</a>
                     {{-- <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> --}}
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
                         <a class="footer-link" href="#">Home</a>
-                        <a class="footer-link" href="#">Cookies</a>
-                        <a class="footer-link" href="#">Help</a>
-                        <a class="footer-link" href="#">FQAs</a>
+                        <a class="footer-link" href="#Aboutus">Tentang</a>
+                        <a class="footer-link" href="#Service">Layanan</a>
                     </div>
                 </div>
             </div>

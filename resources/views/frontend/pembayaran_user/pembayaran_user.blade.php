@@ -100,7 +100,7 @@
                                         <td>
                                             <center>
                                                 {{-- <button class="btn btn-primary btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen"></i></button> --}}
-                                                @if (in_array($item->status,['WAITING','ON_PROGRESS','COMPLETED']))
+                                                @if (in_array($item->status,['WAITING']))
                                                 <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}','{{$item->harga}}')">Upload Bukti Bayar</button>
                                                 @endif
                                             </center>

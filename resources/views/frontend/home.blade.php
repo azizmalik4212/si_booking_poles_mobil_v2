@@ -157,7 +157,7 @@
                                 <span class="fw-bold text-secondary">03</span>
                             </div>
                             <div class="ps-3">
-                                <h6>Peralatan Berkualitas</h6>
+                                <h6 id="Service">Peralatan Berkualitas</h6>
                                 <span>Alat dan Bahan terbaik dalam bidang auto detailing</span>
                             </div>
                         </div>
@@ -170,10 +170,10 @@
 <!-- About End -->
 
 
-<!-- Fact Start -->
+{{-- <!-- Fact Start -->
 <div class="container-fluid fact bg-dark my-5 py-5">
     <div class="container">
-        <div class="row g-2">
+        <div class="row g-2"  id="Service">
             {{-- <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                 <i class="fa fa-check fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">1</h2>
@@ -192,43 +192,51 @@
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
                 <i class="fa fa-car fa-2x text-white mb-3"></i>
                 <h2 class="text-white mb-2" data-toggle="counter-up">50</h2>
-                <p  id="Service" class="text-white mb-0">Projek Selesai</p>
+                <p   class="text-white mb-0">Projek Selesai</p>
             </div> --}}
         </div>
     </div>
 </div>
-<!-- Fact End -->
+<!-- Fact End --> --}}
 
 
 <!-- Service Start -->
-<div class="container-xxl service py-5" id="layananKami">
+<div class="container-xxl service py-7">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="text-primary text-uppercase">// Layanan //</h6>
-            <h1 class="mb-5">Layanan Yang Kami Miliki</h1>
+            <h1 class="mb-7">Layanan Yang Kami Miliki</h1>
         </div>
         <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">
             <div class="col-lg-4">
                 <div class="nav w-100 nav-pills me-6">
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 active" data-bs-toggle="pill" data-bs-target="#tab-pane-1" type="button">
                         <i class="fa fa-car-side fa-2x me-3"></i>
-                        <h4 class="m-0">Perawatan Kaca</h4>
+                        <h4 class="m-0">Cuci Mobil</h4>
                     </button>
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-2" type="button">
                         <i class="fa fa-car fa-2x me-3"></i>
-                        <h4 class="m-0">Perawatan Interior</h4>
+                        <h4 class="m-0">Perawatan Kaca</h4>
                     </button>
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-4" data-bs-toggle="pill" data-bs-target="#tab-pane-3" type="button">
                         <i class="fa fa-cog fa-2x me-3"></i>
-                        <h4 class="m-0">Perawatan Exterior</h4>
+                        <h4 class="m-0">Perawatan Interior</h4>
                     </button>
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
                         <i class="fa fa-oil-can fa-2x me-3"></i>
-                        <h4 class="m-0">Pembersihan Mesin</h4>
+                        <h4 class="m-0">Perawatan Exterior</h4>
                     </button>
                     <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-5" type="button" style="margin-top: 26px">
                         <i class="fa fa-oil-can fa-2x me-3"></i>
-                        <h4 class="m-0">test</h4>
+                        <h4 class="m-0">Pembersihan Mesin</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-6" type="button" style="margin-top: 26px">
+                        <i class="fa fa-car-side fa-2x me-3"></i>
+                        <h4 class="m-0">Paket Exterior</h4>
+                    </button>
+                    <button class="nav-link w-100 d-flex align-items-center text-start p-4 mb-0" data-bs-toggle="pill" data-bs-target="#tab-pane-7" type="button" style="margin-top: 26px">
+                        <i class="fa fa-car fa-2x me-3"></i>
+                        <h4 class="m-0">Paket Complate</h4>
                     </button>
                 </div>
             </div>
@@ -238,7 +246,25 @@
                         <div class="row g-4">
                             <div class="col-md-6" style="min-height: 350px;">
                                 <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-1.jpg') }}"
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-0.jpg') }}"
+                                        style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Cuci Mobil</h3>
+                                <p class="mb-4">Mencuci mobil adalah salah satu jenis perawatan pada mobil yang bisa dilakukan dimana saja. Dimana saja disini maksudnya bisa dilakukan dirumah. Tentunya Anda tidak mau bukan apabila melihat mobil dalam keadaan yang kotor baik di bagian interior maupun eksterior.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Debu</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Kotor</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Air Hujan</p>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-1.jpg') }}"
                                         style="object-fit: cover;" alt="">
                                 </div>
                             </div>
@@ -248,15 +274,15 @@
                                 <p><i class="fa fa-check text-success me-3"></i>Jamur</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Flek</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Baret</p>
-                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
+                    <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row g-4">
                             <div class="col-md-6" style="min-height: 350px;">
                                 <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-2.jpg') }}"
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-2.jpg') }}"
                                         style="object-fit: cover;" alt="">
                                 </div>
                             </div>
@@ -266,15 +292,15 @@
                                 <p><i class="fa fa-check text-success me-3"></i>Plafon</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Jok Mobil</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Dashboard</p>
-                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab-pane-3">
+                    <div class="tab-pane fade" id="tab-pane-4">
                         <div class="row g-4">
                             <div class="col-md-6" style="min-height: 350px;">
                                 <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-3.jpg') }}"
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-3.jpg') }}"
                                         style="object-fit: cover;" alt="">
                                 </div>
                             </div>
@@ -284,25 +310,7 @@
                                 <p><i class="fa fa-check text-success me-3"></i>Bodi Mobil</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Velg</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Lampu Mobil</p>
-                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="tab-pane-4">
-                        <div class="row g-4">
-                            <div class="col-md-6" style="min-height: 350px;">
-                                <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-4.jpg') }}"
-                                        style="object-fit: cover;" alt="">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h3 class="mb-3">Pembersihan Mesin Mobil</h3>
-                                <p class="mb-4">Meski selalu tertutup, ternyata ruang mesin pada mobil juga bisa terpapar oleh debu dan kotoran. Oleh sebab itu, anda pelu membersihkan mesin mobil yang tepat agar ruang dapur pacu tetap terjaga performanya.</p>
-                                <p><i class="fa fa-check text-success me-3"></i>Debu & Kotoran</p>
-                                <p><i class="fa fa-check text-success me-3"></i>Mesin</p>
-                                <p><i class="fa fa-check text-success me-3"></i>Radiator</p>
-                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -310,7 +318,7 @@
                         <div class="row g-4">
                             <div class="col-md-6" style="min-height: 350px;">
                                 <div class="position-relative h-100">
-                                    <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('assets_frontend/img/service-4.jpg') }}"
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-4.jpg') }}"
                                         style="object-fit: cover;" alt="">
                                 </div>
                             </div>
@@ -320,7 +328,45 @@
                                 <p><i class="fa fa-check text-success me-3"></i>Debu & Kotoran</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Mesin</p>
                                 <p><i class="fa fa-check text-success me-3"></i>Radiator</p>
-                                <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-6">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-5.jpg') }}"
+                                        style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Paket 1</h3>
+                                <p class="mb-4">Paket 1 atau Paket Exterior merupakan gabungan perawatan yang menangani bagian exterior kendaraan Anda. Pewawatan yang berguna agar kendaraan anda tetap bersih dan tidak terlihat kusam apabila Anda membawa kendaraan Anda.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Cuci Mobil</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Perawatan Kaca</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Perawatan Exterior</p>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-7">
+                        <div class="row g-4">
+                            <div class="col-md-6" style="min-height: 350px;">
+                                <div class="position-relative h-100">
+                                    <img class="position-absolute img-fluid w-100 h-600" src="{{ asset('assets_frontend/img/service-6.png') }}"
+                                        style="object-fit: cover;" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="mb-3">Paket 2</h3>
+                                <p class="mb-4">Paket 2 atau Paket Complate merupakan gabungan perawatan yang menangani bagian exterior dan interior kendaraan Anda. Pewawatan yang berguna agar kendaraan anda tetap bersih dan tidak terlihat kusam apabila Anda membawa kendaraan Anda.</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Cuci Mobil</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Perawatan Kaca</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Perawatan Interior</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Perawatan Exterior</p>
+                                <p><i class="fa fa-check text-success me-3"></i>Pembersihan Mesin</p>
+                                {{-- <a href="" class="btn btn-primary py-3 px-5 mt-3">Booking Layanan<i class="fa fa-arrow-right ms-3"></i></a> --}}
                             </div>
                         </div>
                     </div>

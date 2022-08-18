@@ -12,6 +12,7 @@ class Pembayaran extends Model
     protected $fillable = [
         'tgl_pembayaran',
         'bukti',
+        'rek_transfer',
         'id_booking',
         'status',
     ];

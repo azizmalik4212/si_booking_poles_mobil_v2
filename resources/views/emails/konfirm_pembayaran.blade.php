@@ -73,16 +73,11 @@
                                                 <table border="0" cellpadding="0" cellspacing="0" width="78%">
                                                     <tbody>
                                                         <tr>
-                                                            <td align="left" style="font-family:'Open Sans',helvetica,arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:100!important;color:#7e8890!important">
-<<<<<<< HEAD:resources/views/emails/konfirm_pembayaran.blade.php
-                                                                <p>You have received a new booking for your property with Lavanda,
-                                                                    details of which follow below. As always, we are here
-                                                                    to help should you have any questions.</p>
-                                                                <ul style="text-align:left">
-=======
-                                                                <p>Anda telah menerima pemesanan baru untuk jasa detailing Anda dengan SM Detailing, detailnya mengikuti di bawah ini. Seperti biasa, kami di sini untuk membantu jika Anda memiliki pertanyaan.</p>
+                                                            <td align="left" style="font-family:'Open Sans',helvetica,arial,sans-serif!important;font-size:16px!important;line-height:30px!important;font-weight:100!important;color:#252b33!important">
+                                                                <p>Halo <strong>{{@$nama}}</strong></p>
+                                                                <p>Kami informasikan bahwa Anda telah melakukan booking jasa Auto Detailing. Pembayaran anda telah terkonfirmasi.</p>
+                                                                <p><strong>Informasi Booking :</strong></p>
                                                                 <ul style="text-align: left">
->>>>>>> d89ec8a3eaa1ee15995f641f18925731a55dc92d:resources/views/emails/test.blade.php
                                                                     <li>No Booking: <strong>{{@$no_booking}}</strong></li>
                                                                     <li>Tanggal Booking: <strong>{{@$tgl_booking}}</strong></li>
                                                                     <li>Nama: <strong>{{@$nama}}</strong></li>

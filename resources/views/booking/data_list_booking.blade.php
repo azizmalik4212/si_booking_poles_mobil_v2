@@ -6,41 +6,21 @@
 <script src='../lib/main.js'></script> --}}
 
 <style>
-
     #calendar {
-      max-width: 1100px;
+      max-width: 1300px;
       margin: 0 auto;
     }
-
   </style>
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
             <!-- Card stats -->
             <div class="row">
-
             </div>
         </div>
     </div>
 </div>
 <div class="container-fluid mt--7">
-    @if(session()->has('status') && session()->has('message'))
-        @if (session()->get('status') == 'sukses')
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{ session()->get('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @else
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Gagal!</strong> {{ session()->get('message') }}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        @endif
-    @endif
     <div class="row mt-5">
         <div class="col-xl-12 mb-6 mb-xl-0">
             <div class="card shadow">
@@ -61,32 +41,11 @@
         </div>
     </div>
 </div>
-
-
-
-
-  <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
-  <script>
-      function editData(data,idEdit){
-        var obj = data;
-        $('#id_edit').val(idEdit);
-        Object.entries(obj).forEach(([key, val]) => {
-            $('#'+key+'_edit').val(val);
-            $('#modalEdit').modal().show();
-        });
-      }
-
-      function deleteData(id){
-        $('#id_delete').val(id);
-        $('#modalDelete').modal().show();
-      }
-  </script>
   <script>
     var listBooking = JSON.parse('<?php echo json_encode(@$dataBooking); ?>');
     var nowDate = '{{date("Y-m-d")}}';
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
-
       var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
           left: 'prev,next',

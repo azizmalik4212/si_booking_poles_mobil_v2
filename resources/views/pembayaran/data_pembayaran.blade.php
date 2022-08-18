@@ -65,8 +65,8 @@
                             <tr>
                                 <th scope="row">{{$no++}}</th>
                                 <td>{{date('d-m-Y',strtotime($item->tgl_pembayaran))}}</td>
-                                <td>{{$item->rek_transfer}}</td>
                                 <td>{{$item->nama}}</td>
+                                <td>{{$item->rek_transfer}}</td>
                                 <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti) }}" class="rounded" width="100px"></a></td>
                                 <td>{{$item->no_booking}} - {{$item->kendaraan}} - {{$item->jenis_layanan}}</td>
                                 <td>

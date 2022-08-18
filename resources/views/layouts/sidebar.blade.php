@@ -55,7 +55,7 @@
             <div class="row">
             <div class="col-6 collapse-brand">
                 <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/img/logo_wsa2.png') }}">
+                <img src="{{ asset('assets/img/logo_SM1.png') }}">
                 </a>
             </div>
             <div class="col-6 collapse-close">
