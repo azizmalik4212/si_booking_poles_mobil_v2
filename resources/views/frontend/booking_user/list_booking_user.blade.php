@@ -78,7 +78,7 @@
                                     <tr>
                                         <th scope="row">{{$no++}}</th>
                                         <td>{{$item->no_booking}}</td>
-                                        <td>{{date('d-m-Y',strtotime($item->tgl_booking))}}</td>
+                                        <td>{{date('d-m-Y H:i:s',strtotime($item->tgl_booking))}}</td>
                                         <td>{{$item->jenis_layanan}}</td>
                                         <td>{{$item->kendaraan}}</td>
                                         <td>{{$item->alamat ?? '-'}}</td>

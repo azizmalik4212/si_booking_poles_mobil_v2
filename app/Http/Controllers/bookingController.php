@@ -46,11 +46,11 @@ class bookingController extends Controller
 
     public function add(Request $request){
         $data = $request->except("_tokens");
-        $cekData = Booking::where('tgl_booking',$data['tgl_booking'])->whereNotIn('status',['REJECT'])->count();
+        $cekData = Booking::whereDate('tgl_booking',$data['tgl_booking'])->whereNotIn('status',['REJECT'])->count();
         if ($cekData > 0) {
             $response = ['status' => 'gagal', 'message' => 'Sudah terdapat data booking pada tanggal yang sama, mohon melakukan booking pada tanggal yang berbeda'];
         } else {
-
+            $data['tgl_booking'] = date('Y-m-d H:i:s',strtotime($data['tgl_booking'].' '.$data['jam_booking']));
             $action = Booking::create($data);
             if ($action)
                 $response = ['status' => 'sukses', 'message' => 'Data berhasil ditambahkan'];
