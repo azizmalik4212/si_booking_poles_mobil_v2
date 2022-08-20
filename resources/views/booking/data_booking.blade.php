@@ -257,7 +257,11 @@
              </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Tgl booking</label>
-                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" aria-describedby="emailHelp" placeholder="" required>
+                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" onchange="onchangeTglBookEdit()" aria-describedby="emailHelp" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Jam Booking</label>
+                <input type="time" name="jam_booking" class="form-control" id="jam_booking_edit" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Kendaraan</label>
@@ -356,6 +360,12 @@
         $('#id_edit').val(idEdit);
         Object.entries(obj).forEach(([key, val]) => {
             $('#'+key+'_edit').val(val);
+
+            if (key == 'tgl_booking') {
+                $('#tgl_booking_edit').val(val.split(" ")[0]);
+                $('#jam_booking_edit').val(val.split(" ")[1]);
+            }
+            onchangeTglBookEdit();
             $('#modalEdit').modal().show();
         });
       }
@@ -376,6 +386,20 @@
         } else {
             document.getElementById("jam_booking").setAttribute("max", '18:00');
             document.getElementById("jam_booking").setAttribute("min", '09:00');
+        }
+
+
+    }
+
+    function onchangeTglBookEdit(){
+        var tgl = $('#tgl_booking_edit').val().replaceAll("-", "/");
+        var day = new Date(tgl);
+        if (day.getDay() == 0 || day.getDay() == 6) {
+            document.getElementById("jam_booking_edit").setAttribute("max", '15:00');
+            document.getElementById("jam_booking_edit").setAttribute("min", '10:00');
+        } else {
+            document.getElementById("jam_booking_edit").setAttribute("max", '18:00');
+            document.getElementById("jam_booking_edit").setAttribute("min", '09:00');
         }
 
 

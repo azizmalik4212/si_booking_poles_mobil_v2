@@ -69,9 +69,10 @@ class bookingController extends Controller
     }
 
     public function update(Request $request){
-        $dataEdit = $request->except($this->global_exceptKey);
+        $dataEdit = $request->except(array_merge($this->global_exceptKey,['jam_booking']));
+        $dataEdit['tgl_booking'] = date('Y-m-d H:i:s',strtotime($request['tgl_booking'].' '.$request['jam_booking']));
 
-        $cekData = Booking::where('tgl_booking',$dataEdit['tgl_booking'])->whereNotIn('status',['REJECT'])->whereNotIn('id',[$request['id_edit']])->count();
+        $cekData = Booking::where('tgl_booking',$request['tgl_booking'])->whereNotIn('status',['REJECT'])->whereNotIn('id',[$request['id_edit']])->count();
         if ($cekData > 0) {
             $response = ['status' => 'gagal', 'message' => 'Sudah terdapat data booking pada tanggal yang sama, mohon melakukan booking pada tanggal yang berbeda'];
         } else {
