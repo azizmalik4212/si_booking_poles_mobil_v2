@@ -92,6 +92,11 @@ class UsersController extends Controller
         $data['dataLayanan'] = Layanan::get();
         $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
         $data['no_booking']='BOOK_'.$this->leadingZero($data['getLastId'] + 1);
+
+        $data['minTimeBook'] = '09:00'; $data['maxTimeBook'] = '18:00';
+        if (in_array(date('w'),[0,6])) {
+            $data['minTimeBook'] = '10:00'; $data['maxTimeBook'] = '15:00';
+        }
         return view('frontend.booking_user.booking_page',$data);
     }
 

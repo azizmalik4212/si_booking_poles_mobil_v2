@@ -1,7 +1,14 @@
 @extends('frontend.layouts.app')
 @section('content')
  <!-- Service Start -->
-
+ <style type="text/css">
+    .bootstrap-timepicker-meridian, .meridian-column
+    {
+    display: none;
+    }
+</style>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
 <!-- Service End -->
 
 
@@ -60,9 +67,14 @@
                             <div class="col-12 col-sm-6">
                                 <input type="email" class="form-control border-0" placeholder="Your Email" value="{{@$dataUser->email}}" readonly style="height: 55px;">
                             </div>
-                            <div class="col-12 col-sm-12">
+                            <div class="col-6 col-sm-6">
                                 <div class="date" id="date1" data-target-input="nearest">
                                     <input type="date" name="tgl_booking" class="form-control border-0" placeholder="" style="height: 55px;" required>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-6">
+                                <div class="date" id="date1" data-target-input="nearest">
+                                    <input type="text" name="time_booking" class="form-control border-0" placeholder="" style="height: 55px;"  id="timepicker" required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">

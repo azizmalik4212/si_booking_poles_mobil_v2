@@ -60,13 +60,16 @@ class pembayaranController extends Controller
                 $emailJob = new SendQueueEmail($details);
                 dispatch($emailJob);
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'PAID']);
-            } else {
+            } else if ($dataEdit['status'] == 'REJECT') {
                 Booking::where("id", $dataEdit['id_booking'])->update(['status' => 'REJECT']);
             }
         }
 
-        if (@$dataEdit['bukti'] == null) {
+        if (@$dataEdit['bukti'] != null) {
+            $imageName = time() . '.' . $request->file("bukti")->extension();
+            $request->file("bukti")->move(public_path('upload/bukti_bayar'), $imageName);
             $dataEdit = $request->except(['_tokens', '_token', 'id_edit','id_konfirm','bukti']);
+            $dataEdit['bukti'] = $imageName;
         }
 
         $action = Pembayaran::where("id", $request['id_edit'])->update($dataEdit);
