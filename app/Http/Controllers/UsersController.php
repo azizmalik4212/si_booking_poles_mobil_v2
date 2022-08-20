@@ -37,12 +37,16 @@ class UsersController extends Controller
         $dataPost = $request->input();
         $data = $request->except("_tokens");
         // $data['password'] = bcrypt($dataPost['password']);
-
-        $action = User::create($data);
-        if ($action)
-            $response = ['status' => 'sukses', 'message' => 'Data berhasil ditambahkan'];
-        else
-            $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
+        $cekUsername = User::where('username',$data['username'])->count();
+        if ($cekUsername > 0) {
+            $response = ['status' => 'gagal', 'message' => 'Username yang anda inputkan telah terdaftar'];
+        } else {
+            $action = User::create($data);
+            if ($action)
+                $response = ['status' => 'sukses', 'message' => 'Data berhasil ditambahkan'];
+            else
+                $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
+        }
 
         return redirect()->back()->with($response);
     }
