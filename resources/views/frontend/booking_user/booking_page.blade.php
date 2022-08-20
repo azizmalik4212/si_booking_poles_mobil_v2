@@ -61,12 +61,12 @@
                             </div>
                             <div class="col-6 col-sm-6">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="date" name="tgl_booking" class="form-control border-0" placeholder="" style="height: 55px;" required>
+                                    <input type="date" id="tgl_booking" onchange="onchangeTglBook()" name="tgl_booking" class="form-control border-0" placeholder="" style="height: 55px;" required>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-6">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="time" name="jam_booking" class="form-control border-0" placeholder="" style="height: 55px;" min='{{ $minTimeBook }}' max='{{ $maxTimeBook }}' required>
+                                    <input type="time" name="jam_booking"  id="jam_booking" class="form-control border-0" placeholder="" style="height: 55px;" min='{{ $minTimeBook }}' max='{{ $maxTimeBook }}' required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
@@ -109,6 +109,20 @@
         } else {
             $("#harga_layanan").val($("#id_layanan option:selected").attr("harga"));
         }
+    }
+
+    function onchangeTglBook(){
+        var tgl = $('#tgl_booking').val().replaceAll("-", "/");
+        var day = new Date(tgl);
+        if (day.getDay() == 0 || day.getDay() == 6) {
+            document.getElementById("jam_booking").setAttribute("max", '15:00');
+            document.getElementById("jam_booking").setAttribute("min", '10:00');
+        } else {
+            document.getElementById("jam_booking").setAttribute("max", '18:00');
+            document.getElementById("jam_booking").setAttribute("min", '09:00');
+        }
+
+
     }
 </script>
 @endsection
