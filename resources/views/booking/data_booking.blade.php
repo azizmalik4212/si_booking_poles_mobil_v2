@@ -180,7 +180,11 @@
              </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Tgl booking</label>
-                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking" aria-describedby="emailHelp" placeholder="" required>
+                <input type="date" name="tgl_booking" onchange="onchangeTglBook()" class="form-control" id="tgl_booking" aria-describedby="emailHelp" placeholder="" required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Jam Booking</label>
+                <input type="time" name="jam_booking" class="form-control" id="jam_booking" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Kendaraan</label>
@@ -310,6 +314,7 @@
   <script>
       var titlePage = "{{$tittle}}";
       $(document).ready(function() {
+         onchangeTglBook();
           $('#table_id').DataTable({
               dom: 'Bfrtip',
               language: {
@@ -361,6 +366,19 @@
       }
       function submitFilter(){
         $("#filter_form").submit()
+    }
+    function onchangeTglBook(){
+        var tgl = $('#tgl_booking').val().replaceAll("-", "/");
+        var day = new Date(tgl);
+        if (day.getDay() == 0 || day.getDay() == 6) {
+            document.getElementById("jam_booking").setAttribute("max", '15:00');
+            document.getElementById("jam_booking").setAttribute("min", '10:00');
+        } else {
+            document.getElementById("jam_booking").setAttribute("max", '18:00');
+            document.getElementById("jam_booking").setAttribute("min", '09:00');
+        }
+
+
     }
   </script>
 @endsection
