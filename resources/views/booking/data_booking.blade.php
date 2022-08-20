@@ -192,7 +192,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
-                <input type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
+                <input type="text" name="deskripsi" class="form-control" id="deskripsi" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Alamat</label>
@@ -269,7 +269,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Deskripsi</label>
-                <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
+                <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Alamat</label>

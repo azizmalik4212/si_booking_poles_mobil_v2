@@ -133,15 +133,19 @@
                 </div>
                 <div class="form-group" id="row_tgl_booking">
                     <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tanggal Booking</label>
-                    <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" aria-describedby="emailHelp" placeholder="" required>
+                    <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit" onchange="onchangeTglBookEdit()" aria-describedby="emailHelp" placeholder="" required>
                 </div>
+                <div class="form-group" id="row_jam_booking">
+                    <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Jam Booking</label>
+                    <input type="time" name="jam_booking" class="form-control" id="jam_booking_edit" aria-describedby="emailHelp" placeholder="" required>
+                  </div>
                 <div class="form-group" id="row_kendaraan">
                     <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Kendaraan</label>
                     <input type="text" name="kendaraan" class="form-control" id="kendaraan_edit" aria-describedby="emailHelp" placeholder="Masukkan data kendaraan" required>
                 </div>
                 <div class="form-group" id="row_deskripsi">
                     <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Deskripsi</label>
-                    <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi" required>
+                    <input type="text" name="deskripsi" class="form-control" id="deskripsi_edit" aria-describedby="emailHelp" placeholder="Masukkan data deskripsi">
                 </div>
                 <div class="form-group" id="row_alamat">
                     <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Alamat</label>
@@ -231,7 +235,11 @@
               <input type="hidden" id="id_edit2" name="id_edit">
               <div class="form-group" id="row_tgl_booking">
                 <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Tanggal Booking</label>
-                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit2" aria-describedby="emailHelp" placeholder="" required>
+                <input type="date" name="tgl_booking" class="form-control" id="tgl_booking_edit2" onchange="onchangeTglBookEdit2()" aria-describedby="emailHelp" placeholder="" required>
+              </div>
+              <div class="form-group" id="row_jam_booking">
+                <label for="exampleInputEmail1" style="margin-bottom: 6px;margin-top:10px;">Jam Booking</label>
+                <input type="time" name="jam_booking" id="jam_booking_edit2" class="form-control" id="jam_booking2" aria-describedby="emailHelp" placeholder="" required>
               </div>
               <div style="text-align: right;margin-top:50px;">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -338,7 +346,23 @@
         Object.entries(obj).forEach(([key, val]) => {
             $('#'+key+'_edit').val(val);
             $('#'+key+'_edit2').val(val);
+
+            if (status == 'WAITING') {
+                if (key == 'tgl_booking') {
+                    $('#tgl_booking_edit').val(val.split(" ")[0]);
+                    $('#jam_booking_edit').val(val.split(" ")[1]);
+                    onchangeTglBookEdit();
+                }
+            } else {
+                if (key == 'tgl_booking') {
+                    $('#tgl_booking_edit2').val(val.split(" ")[0]);
+                    $('#jam_booking_edit2').val(val.split(" ")[1]);
+                    onchangeTglBookEdit2();
+                }
+            }
         });
+
+
         if (status == 'WAITING') {
             $('#modalEdit').modal('show');
         } else {
@@ -351,6 +375,30 @@
         $('#id_delete').val(id);
         $('#modalDelete').modal('show');
       }
+
+      function onchangeTglBookEdit(){
+        var tgl = $('#tgl_booking_edit').val().replaceAll("-", "/");
+        var day = new Date(tgl);
+            if (day.getDay() == 0 || day.getDay() == 6) {
+                document.getElementById("jam_booking_edit").setAttribute("max", '15:00');
+                document.getElementById("jam_booking_edit").setAttribute("min", '10:00');
+            } else {
+                document.getElementById("jam_booking_edit").setAttribute("max", '18:00');
+                document.getElementById("jam_booking_edit").setAttribute("min", '09:00');
+            }
+        }
+
+        function onchangeTglBookEdit2(){
+        var tgl = $('#tgl_booking_edit2').val().replaceAll("-", "/");
+        var day = new Date(tgl);
+            if (day.getDay() == 0 || day.getDay() == 6) {
+                document.getElementById("jam_booking_edit2").setAttribute("max", '15:00');
+                document.getElementById("jam_booking_edit2").setAttribute("min", '10:00');
+            } else {
+                document.getElementById("jam_booking_edit2").setAttribute("max", '18:00');
+                document.getElementById("jam_booking_edit2").setAttribute("min", '09:00');
+            }
+        }
 
 </script>
 <!-- Booking End -->
