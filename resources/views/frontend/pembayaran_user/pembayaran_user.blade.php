@@ -85,7 +85,9 @@
                                         <td>{{$item->rek_transfer}}</td>
                                         <td><a href="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" target="_blank"><img src="{{ asset('upload/bukti_bayar/'.$item->bukti ?? 'no_image.png') }}" onerror="this.onerror=null; this.src='{{ asset('upload/bukti_bayar/no_image.png') }}'" class="rounded" width="100px"></a></td>
                                         <td>
-                                            @if($item->status_pembayaran=='WAITING')
+                                            @if($item->status=='WAITING')
+                                                <i class="fa fa-clock text-warning" title="Menunggu Konfirmasi"></i>  <span class="text-warning">Menunggu Konfirmasi</span>
+                                            @elseif($item->status_pembayaran=='WAITING')
                                                 <i class="fa fa-clock text-warning" title="Menunggu Konfirmasi"></i>  <span class="text-warning">Menunggu Konfirmasi</span>
                                             @elseif($item->status_pembayaran=='ON_PROGRESS')
                                                 <i class="fa fa-clock text-warning" title="Menunggu Konfirmasi"></i>  <span class="text-warning">Sedang Dikerjakan</span>
@@ -102,7 +104,7 @@
                                         <td>
                                             <center>
                                                 {{-- <button class="btn btn-primary btn-sm" onclick="editData({{$item}},'{{$item->id}}')"><i class="fas fa-pen"></i></button> --}}
-                                                @if (in_array($item->status_pembayaran,['WAITING','ON_PROGRESS','COMPLETED']))
+                                                @if (in_array($item->status_pembayaran,['WAITING','ON_PROGRESS','COMPLETED']) or in_array($item->status,['WAITING','ON_PROGRESS','COMPLETED']))
                                                 <button class="btn btn-success btn-sm" onclick="uploadBukti('{{$item->id}}','{{$item->harga}}')">Upload Bukti Bayar</button>
                                                 @endif
                                             </center>
