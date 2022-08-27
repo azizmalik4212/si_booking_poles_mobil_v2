@@ -98,9 +98,12 @@
                                         </td>
                                         <td>
                                             <center>
-                                                @if ($item->status=='WAITING' or $item->status=='PAID')
-                                                <button class="btn btn-info btn-sm" onclick="editData({{$item}},'{{$item->id}}','{{$item->status}}')"><i class="fas fa-pen text-white"></i></button>
-                                                <button class="btn btn-danger btn-sm" onclick="deleteData('{{$item->id}}')"><i class="fas fa-times"></i></button>
+                                                @if ($item->status == 'WAITING' or $item->status == 'PAID')
+                                                    <button class="btn btn-info btn-sm" onclick="editData({{$item}},'{{$item->id}}','{{$item->status}}')"><i class="fas fa-pen text-white"></i></button>
+
+                                                    @if ($item->status != 'PAID')
+                                                        <button class="btn btn-danger btn-sm" onclick="deleteData('{{$item->id}}')"><i class="fas fa-times"></i></button>
+                                                    @endif
                                                 @endif
                                             </center>
                                         </td>
