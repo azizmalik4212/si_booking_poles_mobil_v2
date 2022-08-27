@@ -36,16 +36,24 @@
                 <form action="{{route('getDataBooking')}}" method="GET" enctype="multipart/form-data" id="filter_form">
                   {{ csrf_field() }}
                   <div class="row">
-                <div class="col-lg-12">
-                  <label for="exampleInputEmail1">Status Booking</label>
+                <div class="col-lg-4">
+                  <label for="exampleInputEmail1" class="mt-2">Status Booking</label>
                   <select class="form-control" name="status" id="status" required>
                       <option value="">-Semua-</option>
-                      <option value="WAITING">Menunggu Konfirmasi</option>
-                      <option value="ON_PROGRESS">Sedang Dikerjakan</option>
-                      <option value="COMPLETED">Selesai</option>
-                      <option value="PAID">Dibayar</option>
-                      <option value="REJECT">Ditolak</option>
+                      <option value="WAITING" {{@$status == 'WAITING' ? 'selected':''}}>Menunggu Konfirmasi</option>
+                      <option value="ON_PROGRESS" {{@$status == 'ON_PROGRESS' ? 'selected':''}}>Sedang Dikerjakan</option>
+                      <option value="COMPLETED" {{@$status == 'COMPLETED' ? 'selected':''}}>Selesai</option>
+                      <option value="PAID" {{@$status == 'PAID' ? 'selected':''}}>Dibayar</option>
+                      <option value="REJECT" {{@$status == 'REJECT' ? 'selected':''}}>Ditolak</option>
                   </select>
+                </div>
+                <div class="col-lg-4">
+                    <label for="exampleInputEmail1" class="mt-2">Tgl awal</label>
+                    <input type="date" class="form-control" name="tgl_awal" id="tgl_awal" value="{{@$tgl_awal}}">
+                </div>
+                <div class="col-lg-4">
+                    <label for="exampleInputEmail1" class="mt-2">Tgl akhir</label>
+                    <input type="date" class="form-control" name="tgl_akhir" id="tgl_akhir" value="{{@$tgl_akhir}}">
                 </div>
               </div>
             </form>
@@ -375,7 +383,15 @@
         $('#modalDelete').modal().show();
       }
       function submitFilter(){
-        $("#filter_form").submit()
+        if ($('#status').val() == '') {
+            alert('Status tidak boleh kosong');
+        } else if ($('#tgl_awal').val() == '') {
+            alert('Tanggal awal tidak boleh kosong');
+        } else if ($('#tgl_akhir').val() == '') {
+            alert('Tanggal akhir tidak boleh kosong');
+        } else {
+            $("#filter_form").submit()
+        }
     }
     function onchangeTglBook(){
         var tgl = $('#tgl_booking').val().replaceAll("-", "/");

@@ -76,7 +76,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                       </div>
-                      <input id="nama" type="text" class="form-control is-invalid" name="nama" value="" required autofocus placeholder="Nama Lengkap">
+                      <input id="nama" type="text" class="form-control is-invalid" name="nama" value="{{ old('nama') }}" required autofocus placeholder="Nama Lengkap">
                     </div>
                   </div>
                 <div class="form-group mb-3">
@@ -84,7 +84,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input id="username" type="text" class="form-control is-invalid" name="username" value="" autocomplete="username" autofocus placeholder="Username">
+                    <input id="username" type="text" class="form-control is-invalid" name="username" value="{{ old('username') }}" autocomplete="username" autofocus placeholder="Username" >
                   </div>
                 </div>
 
@@ -93,7 +93,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                       </div>
-                      <input id="email" type="text" class="form-control is-invalid" name="email" value="" autofocus placeholder="E-Mail">
+                      <input id="email" type="text" class="form-control is-invalid" name="email" value="{{ old('email') }}" autofocus placeholder="E-Mail">
                     </div>
                   </div>
 
@@ -102,7 +102,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input id="password" type="password" class="form-control is-invalid" name="password" value="" required  placeholder="Password">
+                        <input id="password" type="password" class="form-control is-invalid" name="password" value="{{ old('password') }}" required  placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -110,7 +110,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
-                        <input id="konform_password" type="password" class="form-control is-invalid" value="" required  placeholder="Konfirmasi Password">
+                        <input id="konform_password" type="password" name="konfirm_pass" class="form-control is-invalid" value="{{ old('konfirm_pass') }}" required  placeholder="Konfirmasi Password">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -118,7 +118,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-phone"></i></span>
                         </div>
-                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="" required  placeholder="No Handphone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
+                        <input id="text" type="text" class="form-control is-invalid" name="hp" value="{{ old('hp') }}" required  placeholder="No Handphone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');">
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -128,8 +128,8 @@
                         </div>
                         <select class="form-control" name="jk">
                             <option value="">-Jenis Kelamin-</option>
-                            <option value="L">Laki - laki</option>
-                            <option value="P">Perempuan</option>
+                            <option value="L" {{ old('jk') == 'L'?'selected':'' }}>Laki - laki</option>
+                            <option value="P" {{ old('jk') == 'P'?'selected':'' }}>Perempuan</option>
                         </select>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-locations"></i></span>
                         </div>
-                        <textarea class="form-control" name="alamat" placeholder="Alamat Rumah" required></textarea>
+                        <textarea class="form-control" name="alamat" placeholder="Alamat Rumah" required>{{ old('alamat') }}</textarea>
                     </div>
                 </div>
 

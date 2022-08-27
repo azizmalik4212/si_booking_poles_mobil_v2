@@ -36,14 +36,33 @@ class LandingPageController extends Controller
 
     public function addRegister(Request $request){
         $dataPost = $request->input();
-        $data = $request->except("_tokens");
+        $data = $request->except(['_tokens','konfirm_pass']);
         $checkUsername = User::where('username',$data['username'])->count();
+        $checkEmail = User::where('email',$data['email'])->count();
         //$data['password'] = bcrypt($dataPost['password']);
 
         if ($checkUsername > 0) {
             $response = ['status' => 'gagal', 'message' => 'Username yang Anda masukkan telah terdaftar'];
-            return redirect()->back()->with($response);
+            return redirect()->back()->with($response)->withInput();
         }
+
+        if ($checkEmail > 0) {
+            $response = ['status' => 'gagal', 'message' => 'E-Mail yang Anda masukkan telah terdaftar'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
+        if (strlen($request['password']) < 8) {
+            $response = ['status' => 'gagal', 'message' => 'Password minimal 8 digit'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
+        if ($request['konfirm_pass'] != $request['password']) {
+            $response = ['status' => 'gagal', 'message' => 'Konfirmasi password tidak valid'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
+
+
 
         $action = User::create($data);
         if ($action)
@@ -51,7 +70,7 @@ class LandingPageController extends Controller
         else
             $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
 
-        return redirect()->back()->with($response);
+        return redirect()->back()->with($response)->withInput();
     }
 
     public function validateEmail(Request $request){

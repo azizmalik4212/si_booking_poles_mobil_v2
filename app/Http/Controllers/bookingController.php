@@ -24,11 +24,14 @@ class bookingController extends Controller
         $data['dataLayanan'] = Layanan::get();
         $data['getLastId']=@Booking::orderBy('id', 'DESC')->get()->first()->id ?? 0;
         $data['no_booking']='BOOK_'.$this->leadingZero($data['getLastId'] + 1);
+        $data['status'] = @$request['status'];
+        $data['tgl_awal'] = @$request['tgl_awal'];
+        $data['tgl_akhir'] = @$request['tgl_akhir'];
 
-        if ($request['status'] == null)
+        if ($request['status'] == null && $request['tgl_awal'] == null && $request['tgl_akhir'] == null)
             $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
         else
-            $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.status',$request['status'])->get();
+            $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.status',$request['status'])->whereDate('tb_booking.tgl_booking','>=',$request['tgl_awal'])->whereDate('tb_booking.tgl_booking','<=',$request['tgl_akhir'])->get();
 
         return view('booking.data_booking', $data);
     }
