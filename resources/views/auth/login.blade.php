@@ -84,6 +84,7 @@
                     @enderror
                   </div>
                 </div>
+
                 <div class="form-group">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
@@ -96,8 +97,12 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass()"><i class="fa fa-eye" id="showhide_pass"></i></button>
+                    </div>
                   </div>
                 </div>
+
                 <a data-toggle="modal" data-target="#modalEmail" style="cursor:pointer;"><p style="text-align: right" class="text-primary">Lupa password?</p></a>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary w-100">{{ __('LOGIN') }}</button>
@@ -164,6 +169,18 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
       });
+
+       function showHidePass() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+                $('#showhide_pass').attr('class', 'fa fa-eye-slash');
+            } else {
+                x.type = "password";
+                $('#showhide_pass').attr('class', 'fa fa-eye');
+
+            }
+        }
   </script>
 </body>
 

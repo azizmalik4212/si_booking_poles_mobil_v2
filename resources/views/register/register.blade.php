@@ -103,6 +103,9 @@
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
                         <input id="password" type="password" class="form-control is-invalid" name="password" value="{{ old('password') }}" required  placeholder="Password">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass()"><i class="fa fa-eye" id="showhide_pass"></i></button>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -111,6 +114,9 @@
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                         </div>
                         <input id="konform_password" type="password" name="konfirm_pass" class="form-control is-invalid" value="{{ old('konfirm_pass') }}" required  placeholder="Konfirmasi Password">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass_re()"><i class="fa fa-eye" id="showhide_pass_re"></i></button>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group mb-3">
@@ -183,6 +189,30 @@
         token: "ee6fab19c5a04ac1a32a645abde4613a",
         application: "argon-dashboard-free"
       });
+
+    function showHidePass() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+            $('#showhide_pass').attr('class', 'fa fa-eye-slash');
+        } else {
+            x.type = "password";
+            $('#showhide_pass').attr('class', 'fa fa-eye');
+
+        }
+    }
+
+    function showHidePass_re() {
+        var x = document.getElementById("konform_password");
+        if (x.type === "password") {
+            x.type = "text";
+            $('#showhide_pass_re').attr('class', 'fa fa-eye-slash');
+        } else {
+            x.type = "password";
+            $('#showhide_pass_re').attr('class', 'fa fa-eye');
+
+        }
+    }
   </script>
 </body>
 
