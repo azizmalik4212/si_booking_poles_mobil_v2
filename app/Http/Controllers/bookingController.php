@@ -28,10 +28,16 @@ class bookingController extends Controller
         $data['tgl_awal'] = @$request['tgl_awal'];
         $data['tgl_akhir'] = @$request['tgl_akhir'];
 
-        if ($request['status'] == null && $request['tgl_awal'] == null && $request['tgl_akhir'] == null)
+        if ($request['tgl_awal'] != null && $request['tgl_akhir'] != null) {
+            if (@$request['status'] == 'ALL') {
+                $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->whereDate('tb_booking.tgl_booking','>=',$request['tgl_awal'])->whereDate('tb_booking.tgl_booking','<=',$request['tgl_akhir'])->get();
+            } else {
+                $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.status',$request['status'])->whereDate('tb_booking.tgl_booking','>=',$request['tgl_awal'])->whereDate('tb_booking.tgl_booking','<=',$request['tgl_akhir'])->get();
+            }
+        } else {
             $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->get();
-        else
-            $data['dataSql'] = Booking::select("tb_booking.*","users.nama", "tb_layanan.jenis_layanan")->join("users", "users.id","tb_booking.id_user")->join("tb_layanan", "tb_booking.id_layanan", "tb_layanan.id")->where('tb_booking.status',$request['status'])->whereDate('tb_booking.tgl_booking','>=',$request['tgl_awal'])->whereDate('tb_booking.tgl_booking','<=',$request['tgl_akhir'])->get();
+        }
+
 
         return view('booking.data_booking', $data);
     }

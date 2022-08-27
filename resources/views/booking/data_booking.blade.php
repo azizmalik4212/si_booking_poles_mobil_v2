@@ -39,7 +39,7 @@
                 <div class="col-lg-4">
                   <label for="exampleInputEmail1" class="mt-2">Status Booking</label>
                   <select class="form-control" name="status" id="status" required>
-                      <option value="">-Semua-</option>
+                      <option value="ALL">-Semua-</option>
                       <option value="WAITING" {{@$status == 'WAITING' ? 'selected':''}}>Menunggu Konfirmasi</option>
                       <option value="ON_PROGRESS" {{@$status == 'ON_PROGRESS' ? 'selected':''}}>Sedang Dikerjakan</option>
                       <option value="COMPLETED" {{@$status == 'COMPLETED' ? 'selected':''}}>Selesai</option>
