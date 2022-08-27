@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    .dataTables_wrapper .dataTables_length select {
+        margin-top: 25px;
+    }
+</style>
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
         <div class="header-body">
@@ -327,8 +332,13 @@
       var titlePage = "{{$tittle}}";
       $(document).ready(function() {
          onchangeTglBook();
-          $('#table_id').DataTable({
-              dom: 'Bfrtip',
+         var table = $('#table_id').DataTable({
+              select: true,
+              dom: 'Blfrtip',
+              lengthMenu: [
+                  [10, 25, 50, 100],
+                  ['10', '25', '50', '100']
+              ],
               language: {
                   'paginate': {
                   'previous': '<i class="fa fa-chevron-left"></i>',
@@ -341,7 +351,7 @@
                       title:titlePage,
                       exportOptions: {
                           // columns: [ 0, 1, 2, 3]
-                      }
+                      },
                   },
                   {
                       extend: 'pdfHtml5',
@@ -360,6 +370,8 @@
                   },
               ]
           });
+          table.buttons().container()
+              .appendTo('#datatable_wrapper .mt-5');
       });
   </script>
   <script>
