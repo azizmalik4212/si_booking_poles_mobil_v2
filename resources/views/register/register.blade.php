@@ -147,11 +147,19 @@
                         <textarea class="form-control" name="alamat" placeholder="Alamat Rumah" required>{{ old('alamat') }}</textarea>
                     </div>
                 </div>
+                <div class="form-group mb-3" style="">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox" required>
+                        <label class="custom-control-label" for=" customCheckLogin">
+                          <span class="text-muted">Dengan ini saya menyetujui <a href="#" data-toggle="modal" data-target="#snkModal">Syarat & Ketentuan</a> yang berlaku </span>
+                        </label>
+                    </div>
+                </div>
+
 
 
 
                 <div class="text-center">
-
                   <button type="submit" class="btn btn-success my-2 w-100">REGISTER</button>
                 </div>
               </form>
@@ -174,6 +182,29 @@
       </div>
     </footer>
   </div>
+
+  <div class="modal fade" id="snkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Syarat dan Ketentuan</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>1. Ketuhanan yang maha esa</p>
+          <p>2. Kemanusiaan yang adil dan beradap</p>
+          <p>3. Persatuan indonesia</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--   Core   -->
   <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>

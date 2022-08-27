@@ -90,6 +90,16 @@
                             <div class="col-12">
                                 <textarea class="form-control border-0" name="deskripsi" placeholder="Deksripsi (Opsional)"></textarea>
                             </div>
+                            <div class="col-12" style="text-align: left">
+                                <div class="form-group mb-3" style="">
+                                    <div class="custom-control custom-control-alternative custom-checkbox">
+                                        <input class="custom-control-input" id=" customCheckLogin" type="checkbox" required>
+                                        <label class="custom-control-label" for=" customCheckLogin">
+                                          <span class=" text-white">Saya PKI <a href="javascript:void(0)" class="text-white" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> ... </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-12">
                                 <button class="btn btn-secondary w-100 py-3" type="submit">Book Now</button>
                             </div>
@@ -100,6 +110,21 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="snkModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Syarat dan Ketentuan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Saya PKI
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script src="{{ asset('assets/js/plugins/jquery/dist/jquery.min.js') }}"></script>
 <script>
 
@@ -123,6 +148,10 @@
         }
 
 
+    }
+
+    function runModalSnK(){
+        $('#snkModal').modal('show');
     }
 </script>
 @endsection

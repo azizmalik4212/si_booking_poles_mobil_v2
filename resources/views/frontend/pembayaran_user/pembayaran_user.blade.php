@@ -150,6 +150,25 @@
                     <label for="exampleInputEmail1" style="margin-bottom: 10px">Bukti Pembayaran</label>
                     <input type="file" name="bukti" class="form-control" style="background-color: #fff" id="bukti"required>
                 </div>
+
+                <div class="alert alert-warning mt-3" role="alert" >
+                    <h4 class="alert-heading">Well done!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                </div>
+                <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
+                    <div class="form-group mb-3" style="">
+                        <div class="custom-control custom-control-alternative custom-checkbox">
+                            <input class="custom-control-input" id=" customCheckLogin" type="checkbox" required>
+                            <label class="custom-control-label" for=" customCheckLogin">
+                              <span class=" text-dark">Saya PKI <a href="javascript:void(0)" class="text-blue" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> ... </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div style="text-align: right;margin-top:50px;">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Batal</button>
                 <button type="submit" class="btn btn-success">Unggah</button>
