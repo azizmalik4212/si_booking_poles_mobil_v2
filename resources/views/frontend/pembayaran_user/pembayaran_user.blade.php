@@ -141,9 +141,8 @@
                     <label for="exampleInputEmail1" style="margin-top: 20px;margin-bottom: 10px">Rekening Transfer</label>
                     <select class="form-control" name="rek_transfer" required style="background-color: #fff;">
                         <option value="">-Pilih-</option>
-                        <option value="BCA - 745523773478">BCA - 745523773478</option>
-                        <option value="BRI - 100092329829928">BRI - 100092329829928</option>
-                        <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                        <option value="BCA - 7700607938">BCA - 7700607938</option>
+                        <option value="BRI - 313401001228507">BRI - 313401001228507</option>
                     </select>
                 </div>
                 <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
@@ -152,17 +151,20 @@
                 </div>
 
                 <div class="alert alert-warning mt-3" role="alert" >
-                    <h4 class="alert-heading">Well done!</h4>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <h4 class="alert-heading">Syarat & Ketentuan</h4>
+                    <p>1. Pembayaran dilakukan dengan transfer bank</p>
+                    <p>2. Total Transfer Sesuai dengan total pembayaran</p>
+                    <p>3. Pembayaran akan dikonfirmasi oleh admin secepatnya</p>
+                    <p>4. Setelah melakukan pembayaran, anda dapat merubah tanggal booking anda</p>
                     <hr>
-                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    <p class="mb-0">Salam SM Detailing</p>
                 </div>
                 <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
                     <div class="form-group mb-3" style="">
                         <div class="custom-control custom-control-alternative custom-checkbox">
                             <input class="custom-control-input" id=" customCheckLogin" type="checkbox" required>
                             <label class="custom-control-label" for=" customCheckLogin">
-                              <span class=" text-dark">Saya PKI <a href="javascript:void(0)" class="text-blue" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> ... </span>
+                              <span class=" text-dark">Saya Telah Menyetujui <a href="javascript:void(0)" class="text-blue" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> yang berlaku </span>
                             </label>
                         </div>
                     </div>

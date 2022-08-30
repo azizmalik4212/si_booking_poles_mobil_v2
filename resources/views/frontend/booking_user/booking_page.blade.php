@@ -95,7 +95,7 @@
                                     <div class="custom-control custom-control-alternative custom-checkbox">
                                         <input class="custom-control-input" id=" customCheckLogin" type="checkbox" required>
                                         <label class="custom-control-label" for=" customCheckLogin">
-                                          <span class=" text-white">Saya PKI <a href="javascript:void(0)" class="text-white" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> ... </span>
+                                          <span class=" text-white">Saya Telah Menyetujui <a href="javascript:void(0)" class="text-white" style="text-decoration: underline" onclick="runModalSnK()">Syarat & Ketentuan</a> Yang berlaku </span>
                                         </label>
                                     </div>
                                 </div>

@@ -193,9 +193,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>1. Ketuhanan yang maha esa</p>
-          <p>2. Kemanusiaan yang adil dan beradap</p>
-          <p>3. Persatuan indonesia</p>
+          <p>1. Telah Berusia 17 Tahun Keatas</p>
+          <p>2. Mengisi Data Sesuai Dengan Identitas Diri</p>
+          <p>3. Tidak Memberikan Informasi Akun Anda Kepada Siapapun</p>
 
         </div>
         <div class="modal-footer">
