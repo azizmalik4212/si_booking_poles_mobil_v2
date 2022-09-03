@@ -155,10 +155,10 @@
                 <label for="exampleInputEmail1">E-Mail</label>
                 <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Masukkan email" required>
               </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" value="{{ old('password') }}" id="exampleInputPassword1" placeholder="Password" required>
-                </div>
+                </div> --}}
               <div class="form-group">
                 <label for="exampleInputEmail1">Jabatan</label>
                 <select class="form-control" name="role" required>
@@ -219,10 +219,10 @@
                 <label for="exampleInputEmail1">E-Mail</label>
                 <input type="email" name="email" class="form-control" id="email_edit" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Masukkan email" required>
               </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" name="password" class="form-control" id="password_edit" value="{{ old('password') }}" placeholder="Password" required>
-                </div>
+                </div> --}}
               <div class="form-group">
                 <label for="exampleInputEmail1">Jabatan</label>
                 <select class="form-control" name="role" id="role_edit" required>

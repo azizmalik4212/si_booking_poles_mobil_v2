@@ -44,8 +44,6 @@ class UsersController extends Controller
             $response = ['status' => 'gagal', 'message' => 'Username yang anda inputkan telah terdaftar'];
         } else if ($checkEmail > 0){
             $response = ['status' => 'gagal', 'message' => 'E-Mail yang anda inputkan telah terdaftar'];
-        } else if (strlen($dataPost['password']) < 8){
-            $response = ['status' => 'gagal', 'message' => 'Password minimal 8 digit'];
         } else {
             $action = User::create($data);
             if ($action)
@@ -74,21 +72,23 @@ class UsersController extends Controller
     public function updateUser(Request $request){
         $this->middleware('auth');
 
-        $checkEmail = User::where('email',$request['email'])->where('id', '!=' , $request['id_edit'])->count();
-        if ($checkEmail > 0) {
-            $response = ['status' => 'gagal', 'message' => 'E-Mail yang Anda masukkan telah terdaftar'];
+        $checkEmail = User::where('email',$request['email'])->count();
+        $cekUsername = User::where('username',$request['username'])->count();
+        if ($cekUsername > 0) {
+            $response = ['status' => 'gagal', 'message' => 'Username yang anda inputkan telah terdaftar'];
+        } else if ($checkEmail > 0){
+            $response = ['status' => 'gagal', 'message' => 'E-Mail yang anda inputkan telah terdaftar'];
+        } else {
+            $dataEdit = $request->except($this->global_exceptKey);
+            $action = User::where("id", $request['id_edit'])->update($dataEdit);
+            if ($action)
+                $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
+            else
+                $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+
             return redirect()->back()->with($response)->withInput();
         }
 
-        $dataEdit = $request->except($this->global_exceptKey);
-
-        $action = User::where("id", $request['id_edit'])->update($dataEdit);
-        if ($action)
-            $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
-        else
-            $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
-
-        return redirect()->back()->with($response);
     }
 
     public function updatePassword(Request $request){

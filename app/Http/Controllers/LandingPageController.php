@@ -26,13 +26,18 @@ class LandingPageController extends Controller
         $dataEdit = $request->except($this->global_exceptKey);
         $dataEdit['password'] = bcrypt($request['password']);
 
+        if (strlen($request['password']) < 8) {
+            $response = ['status' => 'gagal', 'message' => 'Password minimal 8 digit'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
         $action = User::where("id", $request['id_edit'])->update($dataEdit);
         if ($action)
             $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
         else
             $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
 
-        return redirect()->back()->with($response);
+        return redirect()->back()->with($response)->withInput();
     }
 
     public function addRegister(Request $request){
