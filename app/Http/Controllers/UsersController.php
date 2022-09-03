@@ -86,8 +86,9 @@ class UsersController extends Controller
             else
                 $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
 
-            return redirect()->back()->with($response)->withInput();
         }
+
+        return redirect()->back()->with($response)->withInput();
 
     }
 
