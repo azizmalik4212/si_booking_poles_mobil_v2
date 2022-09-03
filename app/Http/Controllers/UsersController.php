@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -36,10 +37,15 @@ class UsersController extends Controller
         $this->middleware('auth');
         $dataPost = $request->input();
         $data = $request->except("_tokens");
-        // $data['password'] = bcrypt($dataPost['password']);
+        $data['password'] = bcrypt($dataPost['password']);
+        $checkEmail = User::where('email',$request['email'])->count();
         $cekUsername = User::where('username',$data['username'])->count();
         if ($cekUsername > 0) {
             $response = ['status' => 'gagal', 'message' => 'Username yang anda inputkan telah terdaftar'];
+        } else if ($checkEmail > 0){
+            $response = ['status' => 'gagal', 'message' => 'E-Mail yang anda inputkan telah terdaftar'];
+        } else if (strlen($dataPost['password']) < 8){
+            $response = ['status' => 'gagal', 'message' => 'Password minimal 8 digit'];
         } else {
             $action = User::create($data);
             if ($action)
@@ -48,7 +54,7 @@ class UsersController extends Controller
                 $response = ['status' => 'gagal', 'message' => 'Data gagal ditambahkan'];
         }
 
-        return redirect()->back()->with($response);
+        return redirect()->back()->with($response)->withInput();
     }
 
     public function addRegister(Request $request){
@@ -67,6 +73,13 @@ class UsersController extends Controller
 
     public function updateUser(Request $request){
         $this->middleware('auth');
+
+        $checkEmail = User::where('email',$request['email'])->where('id', '!=' , $request['id_edit'])->count();
+        if ($checkEmail > 0) {
+            $response = ['status' => 'gagal', 'message' => 'E-Mail yang Anda masukkan telah terdaftar'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
         $dataEdit = $request->except($this->global_exceptKey);
 
         $action = User::where("id", $request['id_edit'])->update($dataEdit);
@@ -76,6 +89,30 @@ class UsersController extends Controller
             $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
 
         return redirect()->back()->with($response);
+    }
+
+    public function updatePassword(Request $request){
+        $this->middleware('auth');
+
+        $checkPass = User::where('id', $request['id_edit'])->first();
+
+        if (strlen($request['password']) < 8) {
+            $response = ['status' => 'gagal', 'message' => 'Password minimal 8 digit'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
+        if (!Hash::check($request['password_lama'], $checkPass->password)) {
+            $response = ['status' => 'gagal', 'message' => 'Password lama tidak valid'];
+            return redirect()->back()->with($response)->withInput();
+        }
+
+        $action = User::where("id", $request['id_edit'])->update(['password' =>  bcrypt($request['password'])]);
+        if ($action)
+            $response = ['status' => 'sukses', 'message' => 'Data berhasil diubah'];
+        else
+            $response = ['status' => 'gagal', 'message' => 'Data gagal diubah'];
+
+        return redirect()->back()->with($response)->withInput();
     }
 
     public function deleteUser(Request $request) {
@@ -151,7 +188,7 @@ class UsersController extends Controller
     public function jadwalBooking(){
         $data['tittle']='Jadwal booking';
         $data['dataUser'] = User::where('id',Auth::user()->id)->first();
-        $data['dataBooking'] = DB::select("SELECT 'BOOKED' as title, tgl_booking as start,tgl_booking as end
+        $data['dataBooking'] = DB::select("SELECT 'BOOKED' as title, date(tgl_booking) as start,date(tgl_booking) as end
         FROM tb_booking
         INNER JOIN users ON tb_booking.id_user = users.id
         INNER JOIN tb_layanan ON tb_booking.id_layanan = tb_layanan.id WHERE status != 'REJECT'");

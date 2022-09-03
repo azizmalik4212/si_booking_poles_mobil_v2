@@ -161,6 +161,7 @@
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-success my-2 w-100">REGISTER</button>
+                  <a href="/"><button type="button" class="btn btn-danger my-2 w-100">BATAL</button></a>
                 </div>
               </form>
             </div>

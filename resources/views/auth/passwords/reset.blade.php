@@ -71,21 +71,44 @@
               <form method="POST" action="{{ route('resetPasswordAction') }}" role="form" id="change_pass">
                 @csrf
                 <input type="hidden" id="id_edit" name="id_edit" value="{{$id_user}}">
-                <div class="form-group mb-3">
+
+                {{-- <div class="form-group mb-3">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
                     <input id="password_baru" type="password" class="form-control is-invalid" name="password" value="" required autofocus placeholder="Masukkan password baru Anda">
                   </div>
-                </div>
+                </div> --}}
                 <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                            <input id="password1" type="password" class="form-control is-invalid" name="password" value="" required autofocus placeholder="Masukkan password baru Anda">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass('1')"><i class="fa fa-eye" id="showhide_pass1" style="color: #000"></i></button>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="form-group">
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
                     <input id="konfirm_password" type="password" class="form-control" required placeholder="Konfirmasi Password">
                   </div>
+                </div> --}}
+                <div class="form-group">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                            <input id="password2" type="password" class="form-control" required placeholder="Konfirmasi Password">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass('2')"><i class="fa fa-eye" id="showhide_pass2" style="color: #000"></i></button>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-center">
                   <button type="button" onclick="aksiGantiPass()" class="btn btn-primary my-2 w-100">SIMPAN</button>
@@ -126,9 +149,22 @@
         application: "argon-dashboard-free"
       });
 
+
+      function showHidePass(num) {
+        var x = document.getElementById("password"+num);
+        if (x.type === "password") {
+            x.type = "text";
+            $('#showhide_pass'+num).attr('class', 'fa fa-eye-slash');
+        } else {
+            x.type = "password";
+            $('#showhide_pass'+num).attr('class', 'fa fa-eye');
+
+        }
+      }
+
       function aksiGantiPass(){
-        var passwordbaru = $('#password_baru').val();
-        var passwordKonfirm = $('#konfirm_password').val();
+        var passwordbaru = $('#password1').val();
+        var passwordKonfirm = $('#password2').val();
 
         if (passwordbaru == '') {
             alert('Password baru tidak boleh kosong!');

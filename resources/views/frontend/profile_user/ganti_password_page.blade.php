@@ -26,27 +26,29 @@
         <div class="row gx-5">
             <div class="col-lg-12">
                 <br>
-                <center>
-                @if(session()->has('status') && session()->has('message'))
-                    @if (session()->get('status') == 'sukses')
-                    <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 800px">
-                        <strong>Success!</strong> Password berhasil diubah
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    @else
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 800px">
-                        <strong>Gagal!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria- ="true">&times;</span>
-                        </button>
-                    </div>
-                    @endif
-                @endif
-                </center>
+
                 <center>
                     <div class="card shadow" style="width: 800px">
+                        <center>
+                            @if(session()->has('status') && session()->has('message'))
+                                @if (session()->get('status') == 'sukses')
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Success!</strong> {{ session()->get('message') }}
+                                    <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                @else
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Gagal!</strong> {{ session()->get('message') }}
+                                    <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
+                                    <span aria- ="true">&times;</span>
+                                    </button>
+                                </div>
+                                @endif
+                            @endif
+                        </center>
+                        <br>
                         <div class="card-header border-0">
                             <div class="row align-items-center">
                                 <div class="col">
@@ -58,26 +60,47 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('updateDataUser') }}" method="post" enctype="multipart/form-data" id="change_pass">
+                            <form action="{{ route('updatePassword') }}" method="post" enctype="multipart/form-data" id="change_pass">
                                 {{ csrf_field() }}
                             <input type="hidden" name="id_edit" id="id_edit" value="{{Auth::user()->id}}">
                             <div class="row g-3">
                                 <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="password_lama" placeholder="Password Lama"  required>
-                                        <label for="name">Password Lama</label>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-secondary disabled" type="button" id="button-addon2"><i class="fa fa-lock"></i></button>
+                                            </div>
+                                            <input type="password" class="form-control" id="password1" name="password_lama" value="{{old('password_lama')}}"  placeholder="Password Lama" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass('1')"><i class="fa fa-eye" id="showhide_pass1"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="password_baru" name="password"  placeholder="Password Baru" required>
-                                        <label for="email">Password Baru</label>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-secondary disabled" type="button" id="button-addon2"><i class="fa fa-lock"></i></button>
+                                            </div>
+                                            <input type="password" class="form-control" id="password2" name="password" value="{{old('password')}}"  placeholder="Password Baru" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass('2')"><i class="fa fa-eye" id="showhide_pass2"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="password" class="form-control" id="konfirm_password" placeholder="Konfirmasi Password Baru" required>
-                                        <label for="name">Konfirmasi Password Baru</label>
+                                    <div class="form-group">
+                                        <div class="input-group input-group-alternative">
+                                            <div class="input-group-prepend">
+                                                <button class="btn btn-secondary disabled" type="button" id="button-addon2"><i class="fa fa-lock"></i></button>
+                                            </div>
+                                            <input type="password" class="form-control" id="password3" name="konfirm_password" value="{{old('konfirm_password')}}" placeholder="Konfirmasi Password Baru" required>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="showHidePass('3')"><i class="fa fa-eye" id="showhide_pass3"></i></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -114,11 +137,23 @@
         $('#modalUploadBukti').modal().show();
       }
 
+      function showHidePass(num) {
+        var x = document.getElementById("password"+num);
+        if (x.type === "password") {
+            x.type = "text";
+            $('#showhide_pass'+num).attr('class', 'fa fa-eye-slash');
+        } else {
+            x.type = "password";
+            $('#showhide_pass'+num).attr('class', 'fa fa-eye');
+
+        }
+      }
+
       function aksiGantiPass(){
         const currentPass = '{{@$dataUser->password}}';
-        var passwordLama = $('#password_lama').val();
-        var passwordbaru = $('#password_baru').val();
-        var passwordKonfirm = $('#konfirm_password').val();
+        var passwordLama = $('#password1').val();
+        var passwordbaru = $('#password2').val();
+        var passwordKonfirm = $('#password3').val();
 
         if (passwordLama == '') {
             alert('Password lama tidak boleh kosong!');
@@ -129,13 +164,11 @@
             return false;
         }
         if (passwordKonfirm == '') {
-            alert('Konfirmasi Password lama tidak boleh kosong!');
+            alert('Konfirmasi Password tidak boleh kosong!');
             return false;
         }
 
-        if (passwordLama != currentPass) {
-            alert('Password lama tidak valid!');
-        } else if (passwordbaru != passwordKonfirm){
+        if (passwordbaru != passwordKonfirm){
             alert('Konfirmasi password tidak valid!');
         } else {
             $('#change_pass').submit();

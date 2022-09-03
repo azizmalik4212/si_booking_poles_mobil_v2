@@ -71,9 +71,9 @@ class bookingController extends Controller
             if (Auth::user()->role == 'user')
                 return redirect('/user/pembayaran/');
             else
-                return redirect()->back()->with($response);
+                return redirect()->back()->with($response)->withInput();
         } else {
-            return redirect()->back()->with($response);
+            return redirect()->back()->with($response)->withInput();
         }
     }
 

@@ -33,14 +33,14 @@
                     @if (session()->get('status') == 'sukses')
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     @else
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Gagal!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria- ="true">&times;</span>
                         </button>
                     </div>
@@ -61,12 +61,12 @@
                             </div>
                             <div class="col-6 col-sm-6">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="date" id="tgl_booking" onchange="onchangeTglBook()" name="tgl_booking" class="form-control border-0" placeholder="" style="height: 55px;" required>
+                                    <input type="date" id="tgl_booking" onchange="onchangeTglBook()" name="tgl_booking" value="{{ old('tgl_booking') }}" class="form-control border-0" style="height: 55px;" required>
                                 </div>
                             </div>
                             <div class="col-6 col-sm-6">
                                 <div class="date" id="date1" data-target-input="nearest">
-                                    <input type="time" name="jam_booking"  id="jam_booking" class="form-control border-0" placeholder="" style="height: 55px;" min='{{ $minTimeBook }}' max='{{ $maxTimeBook }}' required>
+                                    <input type="time" name="jam_booking" value="{{ old('jam_booking') }}" id="jam_booking" class="form-control border-0" style="height: 55px;" min='{{ $minTimeBook }}' max='{{ $maxTimeBook }}' required>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
@@ -82,13 +82,13 @@
                                 <input type="text" class="form-control border-0" id="harga_layanan" style="height: 55px;" placeholder="Harga" value="0" readonly>
                             </div>
                             <div class="col-12 col-sm-12">
-                                <input type="text" name="alamat" class="form-control border-0" style="height: 55px;" placeholder="Alamat" required>
+                                <input type="text" name="alamat" value="{{ old('alamat') }}" class="form-control border-0" style="height: 55px;" placeholder="Alamat" required>
                             </div>
                             <div class="col-12 col-sm-12">
-                                <input type="text" name="kendaraan" class="form-control border-0" style="height: 55px;" placeholder="Kendaraan" required>
+                                <input type="text" name="kendaraan" value="{{ old('kendaraan') }}" class="form-control border-0" style="height: 55px;" placeholder="Kendaraan" required>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-0" name="deskripsi" placeholder="Deksripsi (Opsional)"></textarea>
+                                <textarea class="form-control border-0" name="deskripsi" placeholder="Deksripsi (Opsional)">{{ old('deskripsi') }}</textarea>
                             </div>
                             <div class="col-12" style="text-align: left">
                                 <div class="form-group mb-3" style="">

@@ -30,20 +30,19 @@
                     @if (session()->get('status') == 'sukses')
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     @else
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>Gagal!</strong> {{ session()->get('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <button type="button" class="btn bg-transparent" data-bs-dismiss="alert" aria-label="Close">
                         <span aria- ="true">&times;</span>
                         </button>
                     </div>
                     @endif
                 @endif
-
                 <div class="card shadow">
                     <div class="card-header border-0">
                         <div class="row align-items-center">
@@ -62,19 +61,19 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" name="nama" placeholder="Nama Anda" value="{{$dataUser->nama}}">
+                                    <input type="text" class="form-control" id="name" name="nama" value="{{ old('nama') != '' ? old('nama') : $dataUser->nama }}" placeholder="Nama Anda">
                                     <label for="name">Nama</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="email" value="{{$dataUser->email}}" placeholder="Email Anda">
+                                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') != '' ? old('email') : $dataUser->email }}" placeholder="Email Anda">
                                     <label for="email">Email</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="hp" name="hp" placeholder="No Handphone Anda" value="{{$dataUser->hp}}">
+                                    <input type="text" class="form-control" id="hp" name="hp" value="{{ old('hp') != '' ? old('hp') : $dataUser->hp }}" placeholder="No Handphone Anda">
                                     <label for="name">No Handphone</label>
                                 </div>
                             </div>
@@ -82,15 +81,15 @@
                                 <div class="form-floating">
                                     <select class="form-select border" name="jk" id="jk" required>
                                         <option value="">-Pilih-</option>
-                                        <option value="L" {{($dataUser->jk == 'L' ? 'selected' : '')}}>Laki-laki</option>
-                                        <option value="P"  {{($dataUser->jk == 'P' ? 'selected' : '')}}>Perempuan</option>
+                                        <option value="L" {{old('jk') != '' ? old('jk') == 'L' ? 'selected' : '' :($dataUser->jk == 'L' ? 'selected' : '')}}>Laki-laki</option>
+                                        <option value="P"  {{old('jk') != '' ? old('jk') == 'P' ? 'selected' : '' :($dataUser->jk == 'P' ? 'selected' : '')}}>Perempuan</option>
                                     </select>
                                     <label for="email">Jenis Kelamin</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Alamat Anda" id="alamat" name="alamat" style="height: 100px">{{$dataUser->alamat}}</textarea>
+                                    <textarea class="form-control" placeholder="Alamat Anda" id="alamat" name="alamat" style="height: 100px">{{ old('alamat') != '' ? old('alamat') : $dataUser->alamat }}</textarea>
                                     <label for="message">Alamat</label>
                                 </div>
                             </div>

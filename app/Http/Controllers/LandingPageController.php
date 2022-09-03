@@ -24,6 +24,7 @@ class LandingPageController extends Controller
 
     public function resetPasswordAction(Request $request){
         $dataEdit = $request->except($this->global_exceptKey);
+        $dataEdit['password'] = bcrypt($request['password']);
 
         $action = User::where("id", $request['id_edit'])->update($dataEdit);
         if ($action)
@@ -39,7 +40,7 @@ class LandingPageController extends Controller
         $data = $request->except(['_tokens','konfirm_pass']);
         $checkUsername = User::where('username',$data['username'])->count();
         $checkEmail = User::where('email',$data['email'])->count();
-        //$data['password'] = bcrypt($dataPost['password']);
+        $data['password'] = bcrypt($dataPost['password']);
 
         if ($checkUsername > 0) {
             $response = ['status' => 'gagal', 'message' => 'Username yang Anda masukkan telah terdaftar'];

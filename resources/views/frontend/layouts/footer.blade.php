@@ -37,8 +37,8 @@
                 <h4 class="text-light mb-4">Pendaftaran</h4>
                 <p>Daftarkan diri anda sebagai salah satu pelanggan SM Detailing</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                    <a href="{{ route('registerMenu') }}"> <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">DAFTAR</button>
+                    {{-- <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email"> --}}
+                    <a href="{{ route('registerMenu') }}"> <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 w-100">DAFTAR</button>
                 </div>
             </div>
         </div>
