@@ -71,9 +71,8 @@ class UsersController extends Controller
 
     public function updateUser(Request $request){
         $this->middleware('auth');
-
-        $checkEmail = User::where('email',$request['email'])->count();
-        $cekUsername = User::where('username',$request['username'])->count();
+        $checkEmail = User::where('email',$request['email'])->where('id','!=',$request['id_edit'])->count();
+        $cekUsername = User::where('username',$request['username'])->where('id','!=',$request['id_edit'])->count();
         if ($cekUsername > 0) {
             $response = ['status' => 'gagal', 'message' => 'Username yang anda inputkan telah terdaftar'];
         } else if ($checkEmail > 0){
