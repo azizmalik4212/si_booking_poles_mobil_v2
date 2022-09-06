@@ -145,9 +145,8 @@
                 <label for="exampleInputEmail1">Rek transfer</label>
                 <select class="form-control" name="rek_transfer" required style="background-color: #fff;">
                     <option value="">-Pilih-</option>
-                    <option value="BCA - 745523773478">BCA - 745523773478</option>
-                    <option value="BRI - 100092329829928">BRI - 100092329829928</option>
-                    <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                    <option value="BCA - 7700607938">BCA - 7700607938</option>
+                    <option value="BRI - 313401001228507">BRI - 313401001228507</option>
                 </select>
               </div>
               <div class="form-group">
@@ -195,9 +194,8 @@
                 <label for="exampleInputEmail1">Rek transfer</label>
                 <select class="form-control" name="rek_transfer" id="rek_transfer_edit" required style="background-color: #fff;">
                     <option value="">-Pilih-</option>
-                    <option value="BCA - 745523773478">BCA - 745523773478</option>
-                    <option value="BRI - 100092329829928">BRI - 100092329829928</option>
-                    <option value="BNI - 888448437437727">BNI - 888448437437727</option>
+                    <option value="BCA - 7700607938">BCA - 7700607938</option>
+                    <option value="BRI - 313401001228507">BRI - 313401001228507</option>
                 </select>
               </div>
               <div class="form-group">

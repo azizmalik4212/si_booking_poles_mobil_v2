@@ -119,7 +119,11 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            Saya PKI
+            <p>1. Mengisi data yang sesuai dengan ketentuan dan data yang benar</p>
+            <p>2. Setelah melalukan booking, pastikan melakukan pembayaran sesuai dengan harga yang tertera</p>
+            <p>3. Pembayaran dilakukan dengan transfer via rekening yang tertera pada form pembayaran</p>
+            <p>4. Pembayaran akan di verifikasi oleh admin dalam 1x24 jam</p>
+            <p>5. Hubungi admin jika terdapat kesalahan</p>
         </div>
       </div>
     </div>

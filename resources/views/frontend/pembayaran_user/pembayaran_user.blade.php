@@ -156,8 +156,8 @@
                     <p>2. Total Transfer Sesuai dengan total pembayaran</p>
                     <p>3. Pembayaran akan dikonfirmasi oleh admin secepatnya</p>
                     <p>4. Setelah melakukan pembayaran, anda dapat merubah tanggal booking anda</p>
-                    <hr>
-                    <p class="mb-0">Salam SM Detailing</p>
+                    <p>5. Pembayaran akan di verifikasi oleh admin dalam 1x24 jam</p>
+                    <p>6. Hubungi admin jika terdapat kesalahan</p>
                 </div>
                 <div class="form-group" style="margin-top: 20px" style="background-color: #fff">
                     <div class="form-group mb-3" style="">

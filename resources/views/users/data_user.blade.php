@@ -152,6 +152,10 @@
                 <input type="text" name="username" class="form-control" id="exampleInputEmail1" value="{{ old('username') }}" aria-describedby="emailHelp" placeholder="Username" required>
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputEmail1" value="{{ old('password') }}" aria-describedby="emailHelp" placeholder="Password" required>
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">E-Mail</label>
                 <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}" aria-describedby="emailHelp" placeholder="Masukkan email" required>
               </div>
