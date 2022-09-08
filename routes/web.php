@@ -72,11 +72,3 @@ Route::post('/pembayaran/add', [pembayaranController::class, 'add'])->name('addD
 Route::post('/pembayaran/edit', [pembayaranController::class, 'update'])->name('updateDataPembayaran');
 Route::post('/pembayaran/delete', [pembayaranController::class, 'delete'])->name('deleteDataPembayaran');
 Route::post('/pembayaran/upload-bukti', [pembayaranController::class, 'uploadBuktiPembayaran'])->name('uploadBuktiPembayaran');
-
-//laporan controller
-Route::get('/laporan/user/', [LaporanController::class, 'laporanDataUser'])->name('getLaporanDataUser');
-Route::get('/laporan/kegiatan-pegawai/', [LaporanController::class, 'laporanDataKegiatanPegawai'])->name('geLaporanDataKegiatanPegawai');
-Route::get('/laporan/kegiatan/', [LaporanController::class, 'laporanDataKegiatan'])->name('getLaporanDataKegiatan');
-Route::get('/laporan/absensi/', [LaporanController::class, 'laporanDataAbsensi'])->name('getLaporanDataAbsensi');
-Route::get('/laporan/cuti/', [LaporanController::class, 'laporanDataCuti'])->name('getLaporanDataCuti');
-Route::get('/laporan/booking/', [LaporanController::class, 'laporanDataBooking'])->name('getLaporanDataBooking');
